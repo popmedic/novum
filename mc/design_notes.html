@@ -1,0 +1,404 @@
+<html>
+    <head>
+        <title>Design for Pre-report System</title>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            header {
+                font-size: 32px;
+                display: block;
+                padding-left: 6px;
+                font-weight: bold;
+            }
+            objective {
+                font-size: 16px;
+                padding-left: 12px; 
+                padding-right: 12px;
+                display: block;
+                
+            }
+            toc,
+            overview,
+            components {
+                font-size: 14px;
+                padding-left: 16px; 
+                padding-right: 16px;
+                display: block;
+                
+            }
+            overview h1,
+            components h1 {
+                font-size: 16px;
+            }
+            overview h2,
+            components h2 {
+                font-size: 14px;
+                font-weight: bold;
+                display:inline-block;
+            }
+            by {
+                font-size: 24px;
+            }
+            date {
+                font-size: 22px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            Design for a Pre-Report System<br/>
+            <by>KScardina</by><br/>
+            <date>2014/03/02</date>
+        </header>
+        <p></p>
+        <hr/>
+        <p></p>
+        <objective>
+            This document is notes for kscardina on a design for a pre-report system.
+        </objective>
+        <p></p>
+        <toc>
+            <ol>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#mc">Message Center (mc)</a>
+                    <ol>
+                        <li><a href="#modal">Modal</a>
+                            <ol>
+                                <li><a href="#users">Users</a></li>
+                                <li><a href="#clients">Clients</a>
+                                <li><a href="#messages">Messages</a></li>
+                                <li><a href="#attachments">Attachments</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#controller">Controller</a>
+                            <ol>
+                                <li><a href="#getters">Getters</a></li>
+                                <li><a href="#setters">Setters</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#message">Message</a></li>
+                        <li><a href="#security">Security</a></li>
+                    </ol>
+                </li>
+                <li><a href="#base">Base Client (base)</a></li>
+                <li><a href="#field">Field Clients (field)</a>
+                    <ol>
+                        <li><a href="#native">Native Client (native)</a></li>
+                        <li><a href="#mmsclient">Multimedia Message Service Client (mmsclient)</a>
+                            <ol>
+                                <li><a href="#mmsg">Multimedia Message Service Gateway (mmsg)</a></li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </toc>
+        <p></p>
+        <overview>
+            <a id="overview"><h1>Overview</h1></a>
+            <blockquote>
+                The system will be a secure backend, that can 
+                receive messages various ways, and return messages though various queries.  This back-end will be called the 
+                <a href="#mc">Message Center, or mc</a>.  The Views that a user will see are called clients.  In the pre-report system there 
+                will be 2 main views, the base client, and the field client.  The base client will retrieve messages, and only relies 
+                on the getters of mc, and the field client will send messages, only relying on the setters of mc.
+                <p></p>
+                This document will first define the <a href="#mc">Message Center (mc)</a>.  Then we will define the <a href="#base">
+                base client (base)</a>, and then move on to define the <a href="#field">field clients (field)</a>.  Field clients 
+                defined in this document will be <a href="#native">native applications (native)</a>, and 
+                <a href="#mmsclient">Multimedia Message Service Clients (mmsclient)</a> clients.  Native applications will have an exposed 
+                API wrapping mc setters allowing message to be sent.  The mmsclient will allow texting to a 
+                phone number to create a message and send it to the mc.  This "text" field client allows for a global client that 
+                can be sent from any field personal with a phone, and will use a <a href="#mmsg">Multimedia Message Service Gateway (mmsg)</a>
+                to do this.
+                <p></p>
+                In the world of MVC, we can call out clients the views, and our <a href="#mc">mc</a> the modal and controller.  As such the 
+                modal will be discussed in the <a href="#mc">mc</a> section of this document.  I will also go into details of what a message 
+                is, and security in this section of the document.
+            </blockquote>
+        </overview>
+        <p></p>
+        <components>
+            <a id="mc"><h1>Message Center (mc)</h1></a>
+            <blockquote>
+                The repository, or database, that the messages will be placed in is called our <a href="#mc">Message Center or mc</a>.  
+                It will have a way to send a message to the database by the user id and encoded with the user public key.  We will define what a
+                message is and what a user is.  This mc is the modal and controller for our system, so all data structures will be defined here.
+                <p></p>
+                
+                <a id="modal"><h1>Message Center's Modal</h1></a>
+                <blockquote>
+                    Currently living and working at popmedic.com.  Sql files are 
+                    <a href="https://github.com/popmedic/epcr/tree/master/mc/sql" target="_blank">here</a>.
+                    <blockquote>
+                        <a id="users"><h1>Users</h1></a>
+                        <blockquote>
+                            The user table is to store the different users that will send and recieve messages.
+                            <p></p>
+                            <h1>Users Fields:</h1>
+                            <ul>
+                                <li>
+                                    <h2>id</h2> int auto_increment primary key
+                                    <blockquote>
+                                        The id field is used as a referrance in other tables to this user.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>name</h2> varchar(128) unique
+                                    <blockquote>
+                                        The name field is used for login purposes, this is the username.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>password</h2> varchar(128)
+                                    <blockquote>
+                                        The password field is used for login purposes, this is the md5 hash of the password the user
+                                        chooses.
+                                    </blockquote>
+                                </li>
+                                 <li>
+                                    <h2>type</h2> int foreign key clients(id)
+                                    <blockquote>
+                                        this is a foriegn key into the clients table.  users can have different types of clients, but can not
+                                        have one user with multiple clients.  new users will have to be created for different clients.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>pubkey</h2> varchar(2056)
+                                    <blockquote>
+                                        this field is used to store the users public key.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>added</h2> timestamp NULL
+                                    <blockquote>
+                                        this field is set when the user joins the first time, and is never changed.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>checked</h2> timestamp NULL
+                                    <blockquote>
+                                        this field is used for messaging, and is set everytime the user checks for messages, or sends a message.
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </blockquote>
+                        <a id="clients"><h1>Clients</h1></a>
+                        <blockquote>
+                            Clients are the defined client types.  Currently there will be the: Base Client, Native Client, and MMS Client.  
+                            <p></p>
+                            <h1>Clients fields:</h1>
+                            <ul>
+                                <li>
+                                    <h2>id</h2> int primary key
+                                    <blockquote>
+                                        The id field is used as a referrance in other tables to this client.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>name</h2> varchar(128) unique
+                                    <blockquote>
+                                        The name field is a unique name for the client, currently: base, native, mms.
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </blockquote>
+                        <a id="messages"><h1>Messages</h1></a>
+                        <blockquote>
+                            The messages table is a dynamic table.  this is the main repository for messages.
+                            <p></p>
+                            <h1>Messages Fields:</h1>
+                            <ul>
+                                <li>
+                                    <h2>id</h2> int primary key auto_increment
+                                    <blockquote>
+                                        The id field is used as a referrance in other tables to this message.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>from</h2> int forreign key users(id)
+                                    <blockquote>
+                                        The from field is used as a referrance in users table for the users(id) of the originator of this message.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>to</h2> int forreign key users(id)
+                                    <blockquote>
+                                        The to field is used as a referrance in users table for the users(id) of the reciever of this message.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>ts</h2> timestamp not NULL default CURRENT_TIMESTAMP
+                                    <blockquote>
+                                        this field is used as a timestamp for the time the message was sent to the server.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>message</h2> blob
+                                    <blockquote>
+                                        this field is used for the content of the body of the message.  this potion is encoded with 
+                                        RSA private pulblic key encoding for <a href="#security">security</a>.
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </blockquote>
+                        <a id="attachments"><h1>Attachments</h1></a>
+                        <blockquote>
+                            The attachments table stores binary attachments for messages.  the information or "data" field is encoded with message 
+                            recievers (to) users public key for <a href="#security">security</a> purpuses.
+                            <p></p>
+                            <h1>Attachments Fields:</h1>
+                            <ul>
+                                <li>
+                                    <h2>id</h2> int primary key auto_increment
+                                    <blockquote>
+                                        The id field is used as a referrance in other tables to this attachment.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>message</h2> int forreign key messages(id)
+                                    <blockquote>
+                                        The id field is used as a referrance what message this data is attached to.
+                                    </blockquote>
+                                </li>
+                                <li>
+                                    <h2>data</h2> blob
+                                    <blockquote>
+                                        this field is used for the content of the attachment.  this potion is encoded with 
+                                        RSA private pulblic key encoding for <a href="#security">security</a>.
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </blockquote>
+                    </blockquote>
+                </blockquote>
+                <p></p>
+                
+                <a id="controller"><h1>Message Center's Controller</h1></a>
+                <blockquote>
+                    The Message Center Controller (mcc) is an exposed set of RESTful API HTTP and HTTPS requests.  All requests must contain
+                    a user, password, function, and an optional vars (JSON encoded variables to pass the function ie. { :to => 195, :from => 200 }
+                    <blockquote>
+                        <a id="getters"><h1>Getters</h1></a>
+                        <ul>
+                            <li>...</li>
+                        </ul>
+                        <a id="setters"><h1>Setters</h1></a>
+                        <ul>
+                            <li>...</li>
+                        </ul>
+                    </blockquote>
+                </blockquote>
+                
+                <a id="mcadmin"><h1>Message Center Admin (mcadmin)</h1></a>
+                <blockquote>
+                    Current mcadmin is: <a href="https://p3nlmysqladm002.secureserver.net/grid55/119" target="_blank">phpMyAdmin</a>
+                </blockquote>
+                
+                <a id="message"><h1>Message</h1></a>
+                <blockquote>
+                    define the message
+                </blockquote>
+                <p></p>
+                
+                <a id="security"><h1>Security</h1></a>
+                <blockquote>
+                    define the security
+                </blockquote>
+            </blockquote>
+            
+            <a id="base"><h1>Base Client (base)</h1></a>
+            <blockquote>
+                Define base.
+            </blockquote>
+            
+            <a id="native"><h1>Native Client (native)</h1></a>
+            <blockquote>
+                Define native.
+            </blockquote>
+            
+            <a id="field"><h1>Field Clients (field)</h1></a>
+            <blockquote>
+                Define field.
+                <p></p>
+                
+                <a id="native"><h1>Native Client (native)</h1></a>
+                <blockquote>
+                    define native
+                </blockquote>
+                <p></p>
+                
+                <a id="mmsclient"><h1>Multimedia Message Service Client (mmsclient)</h1></a>
+                <blockquote>
+                    A Multimedia Mesage Service message (mms) sent to a phone number will be recieved by a 
+                    Multimedia Message Service Gateway (<a href="#mmsg">mmsg</a>).  At this point security tasks like PGP encoding can take
+                    place.  After security is preformed the mmsg will upload the message to a Message Center (mc).
+                    Taking a text message in mms sent from a phone to a phone number and converting it into an entry
+                    in a database can be broken into two parts.  We need a gateway that talks to modems that recieve the text message from the 
+                    network carrier and processes them, and we need a repository, or database to place these messages.
+                    <p></p>
+                    The gateway used to recieve the text messages will be call our <a href="#mmsg">Multimedia Message Service Gateway or mmsg</a>.  
+                    By attaching GSM USB modems, activated though a network carrier via SIM cards, we can use the 
+                    <a href="http://wammu.eu/">Wammu</a> open source project and poll for SMS messages on the attached GSM modems.  We can then use 
+                    the SMS messages, translate to MMS messages as needed, preform any security encodings, and send our message to the 
+                    <a href="#mc">mc</a>.
+                    <p></p>
+                    <a id="mmsg"><h1>Multimedia Message Service Gateway - mmsg</h1></a>
+                    <ul>
+                        <li>Ubuntu Server at FortNavajo with GSM modems attached.</li>
+                        <li>Each phone number monitored will have a modem for the number.</li>
+                        <li>
+                            Modems:
+                            <ul>
+                                <li>
+                                    Currently have located a GSM modem and ordered:
+                                        <a href="https://www.bendigobanktelco.com.au/documents/Hardware/HUAWEI%20E173%20user%20guide.pdf">
+                                            Huawei E173 Unlocked HSDPA 7.2Mbps GSM 3G USB Modem
+                                        </a>
+                                </li>
+                                <li>
+                                    Use: <a href="http://wammu.eu/">Wammu and Gammu</a> <a href="https://github.com/gammu/gammu">(Development)</a>
+                                    <blockquote>
+                                        Using gammu on a linux server, see <a href="http://wammu.eu/docs/pdf/smsd.pdf">Gammu SMSD</a> 
+                                        page 22 talks about how to use with MMS.  Using SMSD, we will have a handler for when messages 
+                                        are recieved, and config it with a Null Backend, that way nothing is stored on the gateway, only 
+                                        the encoded messages in the MC database. The handler will then be a full wrapper of the modems 
+                                        SMS/MMS services.  See more in the <a href="http://wammu.eu/docs/pdf/smsd.pdf">manual</a> on 
+                                        page 21, 5.2 Enviroment.
+                                    </blockquote>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </blockquote>
+            </blockquote>
+        </components>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+    </body>    
+</html>
