@@ -6,6 +6,10 @@ class NMError{
     public static function db_success($rows){
         return array("error" => 0, "rows" => $rows);
     }
+    public static function data_success($row){
+        if($row == 0) return array("error" => 0, "data" => 0);
+        return array("error" => 0, "data" => $row["data"], "type" => $row["type"]);
+    }
     public static function id_success($id){
         return array("error" => 0, "id" => $id);
     }
@@ -23,6 +27,12 @@ class NMError{
     }
     public static function get_id($res){
         return $res['id'];
+    }
+    public static function get_data($res){
+        return $res['data'];
+    }
+    public static function get_type($res){
+        return $res['type'];
     }
 }
 ?>

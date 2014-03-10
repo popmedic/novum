@@ -1,0 +1,12 @@
+[gammu]
+device = /dev/ttyUSB0
+connection = at115200
+
+[smsd]
+RunOnReceive = /home/kscardina/novum/mmsg/run_on_respond.rb
+Service = files
+LogFile = syslog
+InboxPath = inbox/
+OutboxPath = outbox/
+SentSMSPath = sent/
+ErrorSMSPath = error/

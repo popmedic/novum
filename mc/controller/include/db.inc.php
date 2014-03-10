@@ -36,5 +36,8 @@ class Db{
             return NMError::error($e->getMessage());
         } 
     }
+    protected function getPreDate(){
+        return new DateTime("1975-10-21 04:20:00");
+    }
 }
 ?>
