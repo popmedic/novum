@@ -9,6 +9,7 @@
 #import "NVMMasterViewController.h"
 #import "NVMAtchImagesViewController.h"
 #import "NVMBaseUsers.h"
+#import "NVMImageZoomViewController.h"
 #import "NVMMasterViewCell.h"
 
 @interface NVMMasterViewController () {
@@ -253,13 +254,16 @@
            if(dres != nil){
                if([[dres valueForKey:@"error"] isKindOfClass:[NSNumber class]]){
                    self.detailViewController.atchImages = [dres valueForKey:@"rows"];
+                   if([self.detailViewController.navigationController.visibleViewController isKindOfClass:[NVMImageZoomViewController class]]){
+                       [self.detailViewController.navigationController popViewControllerAnimated:YES];
+                   }
                    [self.detailViewController.collectionView reloadData];
                    CATransition *animation = [CATransition animation];
                    [animation setType:kCATransitionPush];
                    [animation setSubtype:kCATransitionFade];
                    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
                    [animation setFillMode:kCAFillModeBoth];
-                   [animation setDuration:.3];
+                   [animation setDuration:.5];
                    [[self.detailViewController.collectionView layer] addAnimation:animation forKey:@"UITableViewReloadDataAnimationKey"];
                }
                else{

@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="859" y="-631"/>
         </scene>
-        <!--Atch Images View Controller - Images-->
+        <!--Atch Images View Controller-->
         <scene sceneID="k4e-sK-JYU">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="0vK-BX-Qd9" customClass="NVMAtchImagesViewController" sceneMemberID="viewController">
@@ -136,7 +136,7 @@
                             <outlet property="delegate" destination="0vK-BX-Qd9" id="rSH-l5-v3f"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Images" id="qBm-2x-fXI"/>
+                    <navigationItem key="navigationItem" id="qBm-2x-fXI"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0kn-9t-lrV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="UkB-hc-3Db">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                                <rect key="frame" x="0.0" y="66" width="703" height="702"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                         </subviews>
