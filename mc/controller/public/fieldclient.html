@@ -8,38 +8,99 @@
                 font-family:'Gill Sans', Arial, Helvetica;
             }
             hidden{
-                display: none;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                height: 0px;
+                width: 0px;
+                padding: 0px;
+                border: 0px;
+                opacity: 0.0;
+                max-height: 1px;
+                max-width: 1px;
+                visibility: hidden;
+                z-index: 0;
+            }
+            #add_atch{
+                position: absolute;
+                border: #444 solid 1px;
+                border-radius: 6px;
+                background-color: #eee;
+                color: #222;
+                cursor: pointer;
+                text-align: center;
+                vertical-align: middle;
+                z-index: 1;
+            }
+            #add_atch h1{
+                height: 100%;
+                width: 100%;
+                vertical-align: middle;
+                font-size: 72px;
+            }
+            #snd_div{
+                position: absolute;
+                width: auto;
+                height: auto;
+                z-index: 2;
             }
         </style>
     </head>
     <body>
         <hidden>
-        <div>Name:<input id="name" type="text" /></div>
-        <div>Phone:<input id="phone_number" type="text" /></div>
-        <div>Agency:<input id="agency" type="text" /></div>
-        <div>Unit:<input id="unit" type="text" /></div>
-        <div>Message:<input id="message" type="text" /></div>
-        <div>Attachment:<input type="file" id="file1" /></div>
-        <div>Attachment:<input type="file" id="file2" /></div>
-        <div><button id="snd">Send</button></div>
+        <div>Name:<input id="name" type="text" value="Novum HTML Field Client" /></div>
+        <div>Phone:<input id="phone_number" type="text" value="(303)333-3333" /></div>
+        <div>Agency:<input id="agency" type="text" value="Novum HTML Field Client" /></div>
+        <div>Unit:<input id="unit" type="text" value="0.0.1" /></div>
+        <div>Message:<input id="message" type="text" value="Test" /></div>
         </hidden>
+        <div id="add_atch">
+            <h1>Add Image</h1>
+        </div>
+        <div id="snd_div">
+            <div id="files_div">    
+            </div>
+            <button id="snd">Send</button>
+        </div>
     </body>
     <script>
+        var fnIdx = 1;
+        function resizeApp(){
+            wh = $(window).height();
+            ww = $(window).width();
+            $('#add_atch').css('top', '10px');
+            $('#add_atch').css('left', '10px');
+            $('#add_atch').css('height', String(wh - 120)+'px');
+            $('#add_atch').css('width', String(ww - 20)+'px');
+            sdh = $('#snd_div').height();
+            sdw = $('#snd_div').width();
+            $('#snd_div').css('top',String(wh - 100)+'px');
+            $('#snd_div').css('left',String((ww - sdw)/2)+'px');
+        }
         $(document).ready(function(){
+            resizeApp(); 
+            $(window).resize(function(e){
+                resizeApp();
+            });
             $('#snd').click(function(){
+                $('#snd').attr("disabled", "disabled");
                 var formData = new FormData();
-                var fileInput = document.getElementById('file1');
-                if($(fileInput).val() != "")
+                i = 1;
+                fn = 'file'+String(i);
+                var fileInput = document.getElementById(fn);
+                while(fileInput != null && i < 10)
                 {
-                    var file = fileInput.files[0];
-                    formData.append('file1', file);
+                    if($(fileInput).val() != "")
+                    {
+                        var file = fileInput.files[0];
+                        formData.append(fn, file);
+                        console.log(fn+ " - attached");    
+                        i += 1;
+                        fn = 'file'+String(i);
+                        fileInput = document.getElementById(fn);
+                    }
                 }
-                fileInput = document.getElementById('file2');
-                if($(fileInput).val() != "")
-                {
-                    var file = fileInput.files[0];
-                    formData.append('file2', file);
-                }
+                
                 formData.append('vars', JSON.stringify(
                     {
                         "name": $("#name").val(),
@@ -56,7 +117,13 @@
                     type: 'POST',
                     //Ajax events
                     //beforeSend: beforeSendHandler,
-                    success: function(d) { alert(d); },
+                    success: function(d) { 
+                        console.log(d);
+                        fnIdx = 1;
+                        $('#snd').removeAttr("disabled"); 
+                        $('hidden input[type=file]').parent().remove();
+                        $('#files_div span').remove();
+                    },
                     //error: errorHandler,
                     // Form data
                     data: formData,
@@ -65,6 +132,12 @@
                     contentType: false,
                     processData: false
                 });   
+            });
+            $('#add_atch').click(function(){
+                $('hidden').append('<div>Attachment:<input type="file" id="file'+String(fnIdx)+'" /></div>');
+                $('hidden #file'+String(fnIdx)).click();
+                $('#files_div').append('<span id="file'+String(fnIdx)+'_div">File: '+String(fnIdx)+'&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+                fnIdx += 1;
             });
         });
     </script>

@@ -37,7 +37,7 @@ class BaseUsers extends Db {
     public function getMsgHeaders($name, $password, $start=null, $end=null){
         global $logfile;
         $res = $this->login($name, $password);
-        if(!NMError::is_error($res)){
+        if($this->is_login($name, $password)){
             $buid = NMError::get_id($res);
             $sql = "SELECT ".
                    " `base_messages`.`id` AS `id`, ".
@@ -114,7 +114,7 @@ class BaseUsers extends Db {
     }
     public function checkMsgHeaders($name, $password, $start=null, $end=null){
         $res = $this->login($name, $password);
-        if(!NMError::is_error($res)){
+        if($this->is_login($name, $password)){
             $buid = NMError::get_id($res);
             $sql = "SELECT ".
                    " `base_messages`.`id` AS `id`, ".
@@ -160,7 +160,7 @@ class BaseUsers extends Db {
     }
     public function readMessage($name, $password, $id){
         $res = $this->login($name, $password);
-        if(!NMError::is_error($res)){
+        if($this->is_login($name, $password)){
             $buid = NMError::get_id($res);
             $sql = "SELECT ".
                    " `base_messages`.`id` AS `id`, ".
@@ -198,7 +198,7 @@ class BaseUsers extends Db {
     }
     public function getAtchHeaders($name, $password, $message_id){
         $res = $this->login($name, $password);
-        if(!NMError::is_error($res)){
+        if($this->is_login($name, $password)){
             $sql = "SELECT `base_attachments`.`id`, `base_attachments`.`type` FROM `base_attachments` WHERE `base_attachments`.`message` = ?";
             //printf(str_replace("?","\"%s\"", $sql."<p></p>"), $message_id);
             $res = $this->query($sql, array($message_id));
@@ -207,7 +207,7 @@ class BaseUsers extends Db {
     }
     public function getAtchData($name, $password, $id){
         $res = $this->login($name, $password);
-        if(!NMError::is_error($res)){
+        if($this->is_login($name, $password)){
             $sql = "SELECT `base_attachments`.`data`, `base_attachments`.`type` FROM `base_attachments` WHERE `base_attachments`.`id` = ?";
             $stmt = $this->db->prepare($sql);
             $stmt->execute(array($id));
