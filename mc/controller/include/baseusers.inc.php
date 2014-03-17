@@ -1,7 +1,19 @@
 <?php
 require_once('db.inc.php');
-
+$homedir = trim(`cd ~ && pwd`);
+$logfile = fopen($homedir."/log/baseuser-out.log", "a+");
 class BaseUsers extends Db {
+    public function is_login($name, $password){
+        $sql = "select * from base_users where name = ? and password = ?;";
+        $res = $this->query($sql, array($name, $password));
+        if(!NMError::is_error($res)){
+            if(count($res['rows']) == 0){
+                return false;  
+            }
+            return true;
+        }
+        return false;
+    }
     public function login($name, $password){
         $sql = "select * from base_users where name = ? and password = ?;";
         $res = $this->query($sql, array($name, $password));
@@ -23,6 +35,7 @@ class BaseUsers extends Db {
         return $this->getPreDate();
     }
     public function getMsgHeaders($name, $password, $start=null, $end=null){
+        global $logfile;
         $res = $this->login($name, $password);
         if(!NMError::is_error($res)){
             $buid = NMError::get_id($res);
@@ -53,31 +66,49 @@ class BaseUsers extends Db {
                    " `base_users`.`id` = `base_messages`.`to` and ".
                    " `base_messages`.`ts` > ? and ".
                    " `base_messages`.`ts` <= ? and ".
-                   " `base_messages`.`to` = ?".
-                   "ORDER BY `id`;";
+                   " `base_messages`.`to` = ? ".
+                   "ORDER BY `id` DESC;";
             $dts = null;
             $dte = null;
             
             if($start == null){
+                $start = $this->getPreDate()->format('Y-m-d H:i:s.u');
+            }
+            
+            if($end == null){
+                $dte = new DateTime;
+                $end = $dte->format('Y-m-d H:i:s.u');
+            }
+            
+            fprintf($logfile, str_replace("?","\"%s\"", $sql."\n"), $start, $end, $buid);
+            
+            $res = $this->query($sql, array($start, $end, $buid));
+            /*if($start == null){
                 $dts = $this->getPreDate();
             }
             else{
-                $dts = new DateTime($start);
+                $dts = DateTime::createFromFormat('Y-m-d H:i:s O', $start);
             }
-            if($dts == null) $dts = $this->getPreDate();
+            if($dts == null) {
+                fprintf($logfile, "Unable to create dts from : %s\r\n", $start);
+                $dts = $this->getPreDate();
+            }
             
             if($end == null){
                 $nc = true;
                 $dte = new DateTime;
             }
             else{
-                $dte = new DateTime($end);
+                $dte = DateTime::createFromFormat('Y-m-d H:i:s O', $end);
             }
-            if($dte == null) $dte = new DateTime;
+            if($dte == null){
+                fprintf($logfile, "Unable to create dte from : %s\r\n", $end);
+                $dte = new DateTime;
+            } 
             
-            //printf(str_replace("?","\"%s\"", $sql."<p></p>"), $dts->format('Y-m-d H:i:s.u'), $dte->format('Y-m-d H:i:s.u'), $buid);
+            fprintf($logfile, str_replace("?","\"%s\"", $sql."\n"), $dts->format('Y-m-d H:i:s.u'), $dte->format('Y-m-d H:i:s.u'), $buid);
             
-            $res = $this->query($sql, array($dts->format('Y-m-d H:i:s.u'), $dte->format('Y-m-d H:i:s.u'), $buid));
+            $res = $this->query($sql, array($dts->format('Y-m-d H:i:s.u'), $dte->format('Y-m-d H:i:s.u'), $buid));*/
         }
         return $res;
     }
@@ -112,7 +143,7 @@ class BaseUsers extends Db {
                    " `base_messages`.`ts` > ? and ".
                    " `base_messages`.`ts` <= ? and ".
                    " `base_messages`.`to` = ? ".
-                   "ORDER BY `id`;";
+                   "ORDER BY `id` DESC;";
             $dts = null;
             $dte = null;
             $nc = false;
@@ -158,10 +189,10 @@ class BaseUsers extends Db {
                    " `base_users`.`id` = `base_messages`.`to` and ".
                    " `base_messages`.`id` = ? AND".
                    " `base_messages`.`to` = ? ".
-                   "ORDER BY `id`;";
+                   "ORDER BY `id` DESC;";
             //printf(str_replace("?","\"%s\"", $sql."<p></p>"), $id, $buid);
             $res = $this->query($sql, array($id, $buid));
-            $this->query("UPDATE `base_messages` SET `read` = CURRENT_TIMESTAMP WHERE `id` = ?;", array($id));
+            $this->query("UPDATE `base_messages` SET `read` = UTC_TIMESTAMP WHERE `id` = ?;", array($id));
         }
         return $res;
     }

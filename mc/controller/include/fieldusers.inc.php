@@ -49,7 +49,7 @@ class FieldUsers extends Db{
     }
     public function sendMessage($name, $phone_number, $agency, $unit, $ip_addr, $mac_addr, $ui, $toid, $message){
         $fid = $this->findUserId($name, $phone_number, $agency, $unit, $ip_addr, $mac_addr, $ui);
-        $sql = "INSERT INTO `base_messages`(`from`, `to`, `message`) VALUES (?, ? , ?);";
+        $sql = "INSERT INTO `base_messages`(`from`, `to`, `message`, `ts`) VALUES (?, ? , ?, UTC_TIMESTAMP);";
         $res = $this->query($sql, array($fid, $toid, $message));
         if(!NMError::is_error($res)){
             $sql = "SELECT `id` FROM `base_messages` WHERE `from` = ? AND `to` = ? AND `message` = ? ORDER BY `id`;";

@@ -7,9 +7,13 @@
             body{
                 font-family:'Gill Sans', Arial, Helvetica;
             }
+            hidden{
+                display: none;
+            }
         </style>
     </head>
     <body>
+        <hidden>
         <div>Name:<input id="name" type="text" /></div>
         <div>Phone:<input id="phone_number" type="text" /></div>
         <div>Agency:<input id="agency" type="text" /></div>
@@ -18,6 +22,7 @@
         <div>Attachment:<input type="file" id="file1" /></div>
         <div>Attachment:<input type="file" id="file2" /></div>
         <div><button id="snd">Send</button></div>
+        </hidden>
     </body>
     <script>
         $(document).ready(function(){
