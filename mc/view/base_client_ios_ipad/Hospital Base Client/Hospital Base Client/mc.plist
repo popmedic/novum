@@ -12,6 +12,8 @@
 	<string>http://kevinscardina.com/novum/mc/api/public/baseusers/getAtchHeaders.php</string>
 	<key>loginURL</key>
 	<string>http://kevinscardina.com/novum/mc/api/public/baseusers/login.php</string>
+	<key>readMessageURL</key>
+	<string>http://kevinscardina.com/novum/mc/api/public/baseusers/readMessage.php</string>
 	<key>getAtchFileURLFmt</key>
 	<string>http://kevinscardina.com/novum/mc/api/public/baseusers/getAtchFile.php?vars=%@</string>
 </dict>

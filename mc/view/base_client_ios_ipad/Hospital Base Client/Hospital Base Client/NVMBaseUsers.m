@@ -41,6 +41,7 @@
         self.getMsgHeadersURL = [temp objectForKey:@"getMsgHeadersURL"];
         self.loginURL = [temp objectForKey:@"loginURL"];
         self.getAtchHeadersURL = [temp objectForKey:@"getAtchHeadersURL"];
+        self.readMessageURL = [temp objectForKey:@"readMessageURL"];
         self.getAtchFileURLFmt = [temp objectForKey:@"getAtchFileURLFmt"];
     }
     return self;
@@ -141,6 +142,32 @@
     if(jsonData != nil){
         jsonVars = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
        // NSLog(@"%@", jsonVars);
+    }
+    request.HTTPBody = [[NSString stringWithFormat:@"vars=%@", jsonVars] dataUsingEncoding: NSASCIIStringEncoding];
+    
+    [NSURLConnection sendAsynchronousRequest: request
+                                       queue: [NSOperationQueue mainQueue]
+                           completionHandler:handler];
+}
+
+- (void) readMessage:(NSString*)msgId
+             Handler:(void (^)(NSURLResponse*, NSData*, NSError*))handler{
+    NSError* error;
+    
+    NSMutableDictionary *dvars = [[NSMutableDictionary alloc] init];
+    [dvars setValue:self.user forKey:@"name"];
+    [dvars setValue:self.password forKey:@"password"];
+    [dvars setValue:msgId forKey:@"id"];
+    
+    NSURL *url = [NSURL URLWithString:self.readMessageURL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: url];
+    request.HTTPMethod = @"POST";
+    
+    NSString* jsonVars = @"";
+    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:dvars options:1 error:&error];
+    if(jsonData != nil){
+        jsonVars = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        // NSLog(@"%@", jsonVars);
     }
     request.HTTPBody = [[NSString stringWithFormat:@"vars=%@", jsonVars] dataUsingEncoding: NSASCIIStringEncoding];
     

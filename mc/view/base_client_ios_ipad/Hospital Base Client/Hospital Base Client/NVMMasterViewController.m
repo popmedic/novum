@@ -62,7 +62,7 @@
                                 if([[dres valueForKey:@"error"] isKindOfClass:[NSNumber class]]){
                                     _objects = [NSMutableArray arrayWithArray:[dres valueForKey:@"rows"]];
                                     [self.tableView reloadData];
-                                    [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(checkForMessages:) userInfo:self repeats:YES];
+                                    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(checkForMessages:) userInfo:self repeats:YES];
                                 }
                                 else{
                                     UIAlertView* alert;
@@ -217,13 +217,23 @@
 
     NSDictionary *object = _objects[indexPath.row];
     cell.textLabel.text = [object valueForKey:@"fagency"];
-    cell.detailTextLabel.text = @"Cardiac Alert";
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@ (%@)",
+                                 [object valueForKey:@"funit"],
+                                 [object valueForKey:@"fphone_number"],
+                                 [object valueForKey:@"fip_addr"]];
     NSDateFormatter* utc_fmt = [[NSDateFormatter alloc] init];
     [utc_fmt setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     [utc_fmt setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDateFormatter* loc_fmt = [[NSDateFormatter alloc] init];
     [loc_fmt setTimeZone:[NSTimeZone defaultTimeZone]];
     [loc_fmt setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    //NSLog(@"%@", [object valueForKey:@"read"]);
+    if(![[object valueForKey:@"read"] isKindOfClass:[NSNull class]]){
+        [cell.dateLabel setTextColor:[UIColor darkTextColor]];
+    }
+    else{
+        [cell.dateLabel setTextColor:[UIColor blueColor]];
+    }
     cell.dateLabel.text = [[loc_fmt stringFromDate:[utc_fmt dateFromString:[object valueForKey:@"sentts"]]] description];
     return cell;
 }
@@ -257,6 +267,25 @@
                    if([self.detailViewController.navigationController.visibleViewController isKindOfClass:[NVMImageZoomViewController class]]){
                        [self.detailViewController.navigationController popViewControllerAnimated:YES];
                    }
+                   [_baseUsers readMessage:msgId Handler:^(NSURLResponse *resp, NSData *data, NSError *error) {
+                       NSError *j2error;
+                       NSDictionary *dmsg = [NSJSONSerialization JSONObjectWithData:data
+                                                                            options:NSJSONReadingAllowFragments
+                                                                              error:&j2error];
+                       if(dmsg != nil){
+                           NSArray* rows =[dmsg valueForKey:@"rows"];
+                           NSDictionary* dm =[rows objectAtIndex:0];
+                           NVMAtchImagesViewController* aivc = self.detailViewController;
+                           aivc.navigationItem.title = [dm valueForKey:@"message"];
+                           NSMutableDictionary* md = [[_objects objectAtIndex:indexPath.row] mutableCopy];
+                           if([[md valueForKey:@"read"] isKindOfClass:[NSNull class]]){
+                               [md setObject:@"true" forKey:@"read"];
+                               [_objects replaceObjectAtIndex:indexPath.row withObject:md];
+                               [self.tableView reloadData];
+                               [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+                           }
+                       }
+                   }];
                    [self.detailViewController.collectionView reloadData];
                    CATransition *animation = [CATransition animation];
                    [animation setType:kCATransitionPush];

@@ -20,6 +20,7 @@
 @property (copy, nonatomic) NSString *loginURL;
 @property (copy, nonatomic) NSString *getMsgHeadersURL;
 @property (copy, nonatomic) NSString *getAtchHeadersURL;
+@property (copy, nonatomic) NSString *readMessageURL;
 @property (copy, nonatomic) NSString *getAtchFileURLFmt;
 
 - (void) save;
@@ -32,4 +33,6 @@
                 Handler:(void (^)(NSURLResponse*, NSData*, NSError*))handler;
 - (NSURL*) getAtchFileURL:(NSString*)atchId
                     Thumb:(BOOL) thumb;
+- (void) readMessage:(NSString*)msgId
+             Handler:(void (^)(NSURLResponse*, NSData*, NSError*))handler;
 @end
