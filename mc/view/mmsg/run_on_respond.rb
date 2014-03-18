@@ -4,7 +4,7 @@ require('json')
 require('rest_client')
 
 def sendMessage(files, vars)
-    json_vars = vars.to_json
+    json_vars = vars.to_json.gsub(/\n/,"")
 #    cmd = "curl -F vars='"+json_vars+"' "
 #    files.each_index do |idx|
 #        cmd += "-F file"+idx.to_s+"=@'"+files[idx]+"' "    
