@@ -11,6 +11,14 @@
 @interface NVMDetailViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) IBOutlet UICollectionView *atchCollectionView;
+@property (strong, nonatomic) NSArray* atchImages;
+@property (strong, nonatomic) IBOutlet UILabel *complaintLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel1;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel2;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel3;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel4;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel5;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel6;
 
-//@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end

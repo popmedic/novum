@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
-@class NVMAtchImagesViewController;
+@class NVMDetailViewController;
 @class NVMBaseUsers;
 
 @interface NVMMasterViewController : UITableViewController
 
-@property (strong, nonatomic) NVMAtchImagesViewController *detailViewController;
+@property (strong, nonatomic) NVMDetailViewController *detailViewController;
 @property (readonly) NVMBaseUsers *baseUsers;
 @property (readonly) NSDate *lastChecked;
+@property (readwrite) NSNumber* pollingInterval;
 
 @end

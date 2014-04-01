@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3D2407CD18D72A0E00D29BF1 /* NVMMasterViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D2407CC18D72A0E00D29BF1 /* NVMMasterViewCell.m */; };
+		3D65266A18DE671900373B31 /* NVMZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D65266918DE671900373B31 /* NVMZoomImageView.m */; };
+		3D9C583818EA1A3E00AC457F /* NVMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C583718EA1A3E00AC457F /* NVMDetailViewController.m */; };
 		3DB796CF18CE698D00FFAB8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB796CE18CE698D00FFAB8F /* Foundation.framework */; };
 		3DB796D118CE698D00FFAB8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB796D018CE698D00FFAB8F /* CoreGraphics.framework */; };
 		3DB796D318CE698D00FFAB8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB796D218CE698D00FFAB8F /* UIKit.framework */; };
@@ -26,8 +28,8 @@
 		3DCB73DB18D5D1A9000D7A88 /* NVMBaseUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB73DA18D5D1A9000D7A88 /* NVMBaseUsers.m */; };
 		3DCB73E418D6640E000D7A88 /* NVMAtchImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB73E318D6640E000D7A88 /* NVMAtchImagesViewController.m */; };
 		3DCB73E718D66810000D7A88 /* NVMAtchImagesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB73E618D66810000D7A88 /* NVMAtchImagesViewCell.m */; };
-		3DCB73E918D69D01000D7A88 /* American Dad-SD.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3DCB73E818D69D01000D7A88 /* American Dad-SD.jpg */; };
 		3DCB73EC18D6A637000D7A88 /* NVMImageZoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB73EB18D6A637000D7A88 /* NVMImageZoomViewController.m */; };
+		3DF0783418EA44E0001A9AE1 /* UIImage+fixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF0783318EA44E0001A9AE1 /* UIImage+fixOrientation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,10 @@
 /* Begin PBXFileReference section */
 		3D2407CB18D72A0E00D29BF1 /* NVMMasterViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMMasterViewCell.h; sourceTree = "<group>"; };
 		3D2407CC18D72A0E00D29BF1 /* NVMMasterViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMMasterViewCell.m; sourceTree = "<group>"; };
+		3D65266818DE671900373B31 /* NVMZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMZoomImageView.h; sourceTree = "<group>"; };
+		3D65266918DE671900373B31 /* NVMZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMZoomImageView.m; sourceTree = "<group>"; };
+		3D9C583618EA1A3E00AC457F /* NVMDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMDetailViewController.h; sourceTree = "<group>"; };
+		3D9C583718EA1A3E00AC457F /* NVMDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMDetailViewController.m; sourceTree = "<group>"; };
 		3DB796CB18CE698D00FFAB8F /* Hospital Base Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hospital Base Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB796CE18CE698D00FFAB8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3DB796D018CE698D00FFAB8F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -69,9 +75,10 @@
 		3DCB73E318D6640E000D7A88 /* NVMAtchImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMAtchImagesViewController.m; sourceTree = "<group>"; };
 		3DCB73E518D66810000D7A88 /* NVMAtchImagesViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMAtchImagesViewCell.h; sourceTree = "<group>"; };
 		3DCB73E618D66810000D7A88 /* NVMAtchImagesViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMAtchImagesViewCell.m; sourceTree = "<group>"; };
-		3DCB73E818D69D01000D7A88 /* American Dad-SD.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "American Dad-SD.jpg"; sourceTree = "<group>"; };
 		3DCB73EA18D6A637000D7A88 /* NVMImageZoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMImageZoomViewController.h; sourceTree = "<group>"; };
 		3DCB73EB18D6A637000D7A88 /* NVMImageZoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMImageZoomViewController.m; sourceTree = "<group>"; };
+		3DF0783218EA44E0001A9AE1 /* UIImage+fixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+fixOrientation.h"; sourceTree = "<group>"; };
+		3DF0783318EA44E0001A9AE1 /* UIImage+fixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+fixOrientation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +141,8 @@
 				3DB796E018CE698D00FFAB8F /* Main.storyboard */,
 				3DB796E318CE698E00FFAB8F /* NVMMasterViewController.h */,
 				3DB796E418CE698E00FFAB8F /* NVMMasterViewController.m */,
+				3D9C583618EA1A3E00AC457F /* NVMDetailViewController.h */,
+				3D9C583718EA1A3E00AC457F /* NVMDetailViewController.m */,
 				3D2407CB18D72A0E00D29BF1 /* NVMMasterViewCell.h */,
 				3D2407CC18D72A0E00D29BF1 /* NVMMasterViewCell.m */,
 				3DCB73E218D6640E000D7A88 /* NVMAtchImagesViewController.h */,
@@ -142,12 +151,16 @@
 				3DCB73E618D66810000D7A88 /* NVMAtchImagesViewCell.m */,
 				3DCB73EA18D6A637000D7A88 /* NVMImageZoomViewController.h */,
 				3DCB73EB18D6A637000D7A88 /* NVMImageZoomViewController.m */,
+				3D65266818DE671900373B31 /* NVMZoomImageView.h */,
+				3D65266918DE671900373B31 /* NVMZoomImageView.m */,
 				3DB796E918CE698E00FFAB8F /* Images.xcassets */,
 				3DB796D518CE698D00FFAB8F /* Supporting Files */,
 				3DCB73D918D5D1A9000D7A88 /* NVMBaseUsers.h */,
 				3DCB73DA18D5D1A9000D7A88 /* NVMBaseUsers.m */,
 				3DB796DD18CE698D00FFAB8F /* NVMAppDelegate.h */,
 				3DB796DE18CE698D00FFAB8F /* NVMAppDelegate.m */,
+				3DF0783218EA44E0001A9AE1 /* UIImage+fixOrientation.h */,
+				3DF0783318EA44E0001A9AE1 /* UIImage+fixOrientation.m */,
 			);
 			path = "Hospital Base Client";
 			sourceTree = "<group>";
@@ -155,7 +168,6 @@
 		3DB796D518CE698D00FFAB8F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3DCB73E818D69D01000D7A88 /* American Dad-SD.jpg */,
 				3DB796D618CE698D00FFAB8F /* Hospital Base Client-Info.plist */,
 				3DB796D718CE698D00FFAB8F /* InfoPlist.strings */,
 				3DB796DA18CE698D00FFAB8F /* main.m */,
@@ -263,7 +275,6 @@
 				3DB796EA18CE698E00FFAB8F /* Images.xcassets in Resources */,
 				3DB796D918CE698D00FFAB8F /* InfoPlist.strings in Resources */,
 				3DCB73D818D5CA6B000D7A88 /* mc.plist in Resources */,
-				3DCB73E918D69D01000D7A88 /* American Dad-SD.jpg in Resources */,
 				3DB796E218CE698D00FFAB8F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF0783418EA44E0001A9AE1 /* UIImage+fixOrientation.m in Sources */,
 				3DB796DF18CE698D00FFAB8F /* NVMAppDelegate.m in Sources */,
 				3DB796DB18CE698D00FFAB8F /* main.m in Sources */,
 				3DCB73E718D66810000D7A88 /* NVMAtchImagesViewCell.m in Sources */,
@@ -290,7 +302,9 @@
 				3DCB73E418D6640E000D7A88 /* NVMAtchImagesViewController.m in Sources */,
 				3DCB73DB18D5D1A9000D7A88 /* NVMBaseUsers.m in Sources */,
 				3D2407CD18D72A0E00D29BF1 /* NVMMasterViewCell.m in Sources */,
+				3D9C583818EA1A3E00AC457F /* NVMDetailViewController.m in Sources */,
 				3DB796E518CE698E00FFAB8F /* NVMMasterViewController.m in Sources */,
+				3D65266A18DE671900373B31 /* NVMZoomImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

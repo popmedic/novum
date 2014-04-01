@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface NVMAtchImagesViewController : UICollectionViewController <UISplitViewControllerDelegate>
+{
+    
+}
 @property (strong, nonatomic) NSArray* atchImages;
+
 @end

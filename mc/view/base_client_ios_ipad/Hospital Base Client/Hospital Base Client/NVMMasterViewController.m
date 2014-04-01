@@ -7,7 +7,7 @@
 //
 
 #import "NVMMasterViewController.h"
-#import "NVMAtchImagesViewController.h"
+#import "NVMDetailViewController.h"
 #import "NVMBaseUsers.h"
 #import "NVMImageZoomViewController.h"
 #import "NVMMasterViewCell.h"
@@ -29,6 +29,11 @@
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
     [super awakeFromNib];
+    /*self.pollingInterval = [[NSUserDefaults standardUserDefaults] valueForKey:@"pollingIntervalInSecs"];
+    if(![self.pollingInterval isKindOfClass:[NSNumber class]]){*/
+        self.pollingInterval = [NSNumber numberWithFloat:30.0];
+        
+    //}
 }
 
 - (void)viewDidLoad
@@ -62,7 +67,7 @@
                                 if([[dres valueForKey:@"error"] isKindOfClass:[NSNumber class]]){
                                     _objects = [NSMutableArray arrayWithArray:[dres valueForKey:@"rows"]];
                                     [self.tableView reloadData];
-                                    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(checkForMessages:) userInfo:self repeats:YES];
+                                    [NSTimer scheduledTimerWithTimeInterval:self.pollingInterval.floatValue target:self selector:@selector(checkForMessages:) userInfo:self repeats:YES];
                                 }
                                 else{
                                     UIAlertView* alert;
@@ -126,7 +131,7 @@
         }
     }];
 
-    self.detailViewController = (NVMAtchImagesViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailViewController = (NVMDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)didReceiveMemoryWarning
@@ -183,7 +188,7 @@
                                               delegate:nil
                                      cancelButtonTitle:@"OK"
                                      otherButtonTitles: nil];
-            [alert show];
+            //[alert show];
         }
     }];
 }
@@ -216,9 +221,8 @@
     NVMMasterViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idNVMMasterViewCell" forIndexPath:indexPath];
 
     NSDictionary *object = _objects[indexPath.row];
-    cell.textLabel.text = [object valueForKey:@"fagency"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@ (%@)",
-                                 [object valueForKey:@"funit"],
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@", [object valueForKey:@"fagency"], [object valueForKey:@"funit"]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@)",
                                  [object valueForKey:@"fphone_number"],
                                  [object valueForKey:@"fip_addr"]];
     NSDateFormatter* utc_fmt = [[NSDateFormatter alloc] init];
@@ -268,32 +272,59 @@
                        [self.detailViewController.navigationController popViewControllerAnimated:YES];
                    }
                    [_baseUsers readMessage:msgId Handler:^(NSURLResponse *resp, NSData *data, NSError *error) {
-                       NSError *j2error;
-                       NSDictionary *dmsg = [NSJSONSerialization JSONObjectWithData:data
-                                                                            options:NSJSONReadingAllowFragments
-                                                                              error:&j2error];
-                       if(dmsg != nil){
-                           NSArray* rows =[dmsg valueForKey:@"rows"];
-                           NSDictionary* dm =[rows objectAtIndex:0];
-                           NVMAtchImagesViewController* aivc = self.detailViewController;
-                           aivc.navigationItem.title = [dm valueForKey:@"message"];
-                           NSMutableDictionary* md = [[_objects objectAtIndex:indexPath.row] mutableCopy];
-                           if([[md valueForKey:@"read"] isKindOfClass:[NSNull class]]){
-                               [md setObject:@"true" forKey:@"read"];
-                               [_objects replaceObjectAtIndex:indexPath.row withObject:md];
-                               [self.tableView reloadData];
-                               [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+                       if(data != nil){
+                           NSError *j2error;
+                           NSDictionary *dmsg = [NSJSONSerialization JSONObjectWithData:data
+                                                                                options:NSJSONReadingAllowFragments
+                                                                                  error:&j2error];
+                           if(dmsg != nil){
+                               NSArray* rows =[dmsg valueForKey:@"rows"];
+                               NSDictionary* dm =[rows objectAtIndex:0];
+                               NVMDetailViewController* advc = self.detailViewController;
+                               NSError* jerr2;
+                               NSDictionary* jsonMessage = [NSJSONSerialization JSONObjectWithData:[[dm valueForKey:@"message"] dataUsingEncoding:NSUTF8StringEncoding]
+                                                                                           options:NSJSONReadingAllowFragments
+                                                                                             error:&jerr2];
+                               if(jsonMessage != nil){
+                                    [advc.complaintLabel setText:[jsonMessage valueForKey:@"complaint"]];
+                                    [advc.descriptionLabel1 setText:[NSString stringWithFormat:@"Gender: %@", (NSString*)[jsonMessage valueForKey:@"gender"]]];
+                                    [advc.descriptionLabel2 setText:[NSString stringWithFormat:@"Heart Rate: %@", [jsonMessage valueForKey:@"heart_rate"]]];
+                                    [advc.descriptionLabel3 setText:[NSString stringWithFormat:@"Blood Pressure: %@", [jsonMessage valueForKey:@"blood_pressure"]]];
+                                    [advc.descriptionLabel4 setText:[NSString stringWithFormat:@"Respitory Rate: %@", [jsonMessage valueForKey:@"respiration"]]];
+                               }
+                               else{
+                                    [advc.complaintLabel setText:[dm valueForKey:@"message"]];
+                               }
+                               advc.navigationItem.title = [dm valueForKey:@"sentts"];
+                               /*[NSString stringWithFormat:@"%@ - %@ | %@ (%@) - %@", [dm valueForKey:@"fagency"], [dm valueForKey:@"fname"],
+                                                            [dm valueForKey:@"funit"], [dm valueForKey:@"fphone_number"], [dm valueForKey:@"fip_addr"]];*/
+                               NSMutableDictionary* md = [[_objects objectAtIndex:indexPath.row] mutableCopy];
+                               if([[md valueForKey:@"read"] isKindOfClass:[NSNull class]]){
+                                   [md setObject:@"true" forKey:@"read"];
+                                   [_objects replaceObjectAtIndex:indexPath.row withObject:md];
+                                   [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+                                   [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+                               }
                            }
                        }
+                       else{
+                           UIAlertView* alert;
+                           alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                              message:[NSString stringWithFormat:@"Unable to read message: %@", error.description]
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+                           [alert show];
+                       }
                    }];
-                   [self.detailViewController.collectionView reloadData];
+                   [self.detailViewController.atchCollectionView reloadData];
                    CATransition *animation = [CATransition animation];
                    [animation setType:kCATransitionPush];
                    [animation setSubtype:kCATransitionFade];
                    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
                    [animation setFillMode:kCAFillModeBoth];
                    [animation setDuration:.5];
-                   [[self.detailViewController.collectionView layer] addAnimation:animation forKey:@"UITableViewReloadDataAnimationKey"];
+                   //[[self.detailViewController.collectionView layer] addAnimation:animation forKey:@"UITableViewReloadDataAnimationKey"];
                }
                else{
                    UIAlertView* alert;
