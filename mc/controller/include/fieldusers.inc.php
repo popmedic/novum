@@ -49,14 +49,17 @@ class FieldUsers extends Db{
     }
     public function sendMessage($name, $phone_number, $agency, $unit, $ip_addr, $mac_addr, $ui, $toid, $message){
         $fid = $this->findUserId($name, $phone_number, $agency, $unit, $ip_addr, $mac_addr, $ui);
+        dbgout("Found user ID: ".$fid);
         $sql = "INSERT INTO `base_messages`(`from`, `to`, `message`, `ts`) VALUES (?, ? , ?, UTC_TIMESTAMP);";
         $res = $this->query($sql, array($fid, $toid, $message));
         if(!NMError::is_error($res)){
+            dbgout("Inserted message, finding new message.");
             $sql = "SELECT `id` FROM `base_messages` WHERE `from` = ? AND `to` = ? AND `message` = ? ORDER BY `id`;";
             $res = $this->query($sql, array($fid, $toid, $message));
             if(!NMError::is_error($res)){
                 if(count($res["rows"]) > 0){
                     $mid = $res["rows"][count($res["rows"])-1]["id"];
+                    dbgout("Found new message ID: ".$mid);
                     return NMError::id_success($mid);
                 }
                 else{

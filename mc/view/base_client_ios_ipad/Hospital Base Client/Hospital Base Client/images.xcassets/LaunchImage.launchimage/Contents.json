@@ -20,6 +20,7 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "Novum-Logo-768x1024-Black.png",
       "scale" : "1x"
     },
     {
@@ -27,6 +28,7 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "Novum-Logo-1024x768-Black.png",
       "scale" : "1x"
     },
     {
@@ -34,7 +36,7 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "Novum-Logo-1536x2048.png",
+      "filename" : "Novum-Logo-1536x2048-Black.png",
       "scale" : "2x"
     },
     {
@@ -42,7 +44,7 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
-      "filename" : "Novum-Logo-2048x1536.png",
+      "filename" : "Novum-Logo-2048x1536-Black.png",
       "scale" : "2x"
     },
     {

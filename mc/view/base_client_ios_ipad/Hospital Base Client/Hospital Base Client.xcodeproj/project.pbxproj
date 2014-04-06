@@ -21,20 +21,8 @@
 		3D7E4D5818EF84580003A777 /* Novum Icon 01_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4018EF84580003A777 /* Novum Icon 01_58x58.png */; };
 		3D7E4D5918EF84580003A777 /* Novum Icon 01_76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4118EF84580003A777 /* Novum Icon 01_76x76.png */; };
 		3D7E4D5A18EF84580003A777 /* Novum Icon 01_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4218EF84580003A777 /* Novum Icon 01_80x80.png */; };
-		3D7E4D5B18EF84580003A777 /* Novum Icon 02_1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4318EF84580003A777 /* Novum Icon 02_1024x1024.png */; };
-		3D7E4D5C18EF84580003A777 /* Novum Icon 02_120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4418EF84580003A777 /* Novum Icon 02_120x120.png */; };
-		3D7E4D5D18EF84580003A777 /* Novum Icon 02_152x152.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4518EF84580003A777 /* Novum Icon 02_152x152.png */; };
-		3D7E4D5E18EF84580003A777 /* Novum Icon 02_20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4618EF84580003A777 /* Novum Icon 02_20x20.png */; };
-		3D7E4D5F18EF84580003A777 /* Novum Icon 02_25x25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4718EF84580003A777 /* Novum Icon 02_25x25.png */; };
-		3D7E4D6018EF84580003A777 /* Novum Icon 02_29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4818EF84580003A777 /* Novum Icon 02_29x29.png */; };
-		3D7E4D6118EF84580003A777 /* Novum Icon 02_40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4918EF84580003A777 /* Novum Icon 02_40x40.png */; };
-		3D7E4D6218EF84580003A777 /* Novum Icon 02_44x44.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4A18EF84580003A777 /* Novum Icon 02_44x44.png */; };
-		3D7E4D6318EF84580003A777 /* Novum Icon 02_50x50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4B18EF84580003A777 /* Novum Icon 02_50x50.png */; };
-		3D7E4D6418EF84580003A777 /* Novum Icon 02_58x58.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4C18EF84580003A777 /* Novum Icon 02_58x58.png */; };
-		3D7E4D6518EF84580003A777 /* Novum Icon 02_76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4D18EF84580003A777 /* Novum Icon 02_76x76.png */; };
-		3D7E4D6618EF84580003A777 /* Novum Icon 02_80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D4E18EF84580003A777 /* Novum Icon 02_80x80.png */; };
-		3D7E4D6918EF89970003A777 /* Novum-Logo-2048x1536.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D6818EF89970003A777 /* Novum-Logo-2048x1536.png */; };
-		3D7E4D6B18EF8A210003A777 /* Novum-Logo-1536x2048.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D6A18EF8A210003A777 /* Novum-Logo-1536x2048.png */; };
+		3D7E4D6F18F192D00003A777 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D6E18F192D00003A777 /* images.xcassets */; };
+		3D7E4D7118F1993E0003A777 /* Novum-Logo-2048x1536-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D7E4D7018F1993E0003A777 /* Novum-Logo-2048x1536-Black.png */; };
 		3D9C583818EA1A3E00AC457F /* NVMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C583718EA1A3E00AC457F /* NVMDetailViewController.m */; };
 		3DB796CF18CE698D00FFAB8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB796CE18CE698D00FFAB8F /* Foundation.framework */; };
 		3DB796D118CE698D00FFAB8F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB796D018CE698D00FFAB8F /* CoreGraphics.framework */; };
@@ -44,12 +32,14 @@
 		3DB796DF18CE698D00FFAB8F /* NVMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB796DE18CE698D00FFAB8F /* NVMAppDelegate.m */; };
 		3DB796E218CE698D00FFAB8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB796E018CE698D00FFAB8F /* Main.storyboard */; };
 		3DB796E518CE698E00FFAB8F /* NVMMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB796E418CE698E00FFAB8F /* NVMMasterViewController.m */; };
-		3DB796EA18CE698E00FFAB8F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB796E918CE698E00FFAB8F /* Images.xcassets */; };
 		3DB796F118CE698E00FFAB8F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB796F018CE698E00FFAB8F /* XCTest.framework */; };
 		3DB796F218CE698E00FFAB8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB796CE18CE698D00FFAB8F /* Foundation.framework */; };
 		3DB796F318CE698E00FFAB8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB796D218CE698D00FFAB8F /* UIKit.framework */; };
 		3DB796FB18CE698E00FFAB8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DB796F918CE698E00FFAB8F /* InfoPlist.strings */; };
 		3DB796FD18CE698E00FFAB8F /* Hospital_Base_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB796FC18CE698E00FFAB8F /* Hospital_Base_ClientTests.m */; };
+		3DC9957618F19E2200AA1CA8 /* Novum-Logo-768x1024-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC9957318F19E2200AA1CA8 /* Novum-Logo-768x1024-Black.png */; };
+		3DC9957718F19E2200AA1CA8 /* Novum-Logo-1024x768-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC9957418F19E2200AA1CA8 /* Novum-Logo-1024x768-Black.png */; };
+		3DC9957818F19E2200AA1CA8 /* Novum-Logo-1536x2048-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC9957518F19E2200AA1CA8 /* Novum-Logo-1536x2048-Black.png */; };
 		3DCB73D818D5CA6B000D7A88 /* mc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DCB73D718D5CA6B000D7A88 /* mc.plist */; };
 		3DCB73DB18D5D1A9000D7A88 /* NVMBaseUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB73DA18D5D1A9000D7A88 /* NVMBaseUsers.m */; };
 		3DCB73E418D6640E000D7A88 /* NVMAtchImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DCB73E318D6640E000D7A88 /* NVMAtchImagesViewController.m */; };
@@ -85,20 +75,8 @@
 		3D7E4D4018EF84580003A777 /* Novum Icon 01_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 01_58x58.png"; sourceTree = "<group>"; };
 		3D7E4D4118EF84580003A777 /* Novum Icon 01_76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 01_76x76.png"; sourceTree = "<group>"; };
 		3D7E4D4218EF84580003A777 /* Novum Icon 01_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 01_80x80.png"; sourceTree = "<group>"; };
-		3D7E4D4318EF84580003A777 /* Novum Icon 02_1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_1024x1024.png"; sourceTree = "<group>"; };
-		3D7E4D4418EF84580003A777 /* Novum Icon 02_120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_120x120.png"; sourceTree = "<group>"; };
-		3D7E4D4518EF84580003A777 /* Novum Icon 02_152x152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_152x152.png"; sourceTree = "<group>"; };
-		3D7E4D4618EF84580003A777 /* Novum Icon 02_20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_20x20.png"; sourceTree = "<group>"; };
-		3D7E4D4718EF84580003A777 /* Novum Icon 02_25x25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_25x25.png"; sourceTree = "<group>"; };
-		3D7E4D4818EF84580003A777 /* Novum Icon 02_29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_29x29.png"; sourceTree = "<group>"; };
-		3D7E4D4918EF84580003A777 /* Novum Icon 02_40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_40x40.png"; sourceTree = "<group>"; };
-		3D7E4D4A18EF84580003A777 /* Novum Icon 02_44x44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_44x44.png"; sourceTree = "<group>"; };
-		3D7E4D4B18EF84580003A777 /* Novum Icon 02_50x50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_50x50.png"; sourceTree = "<group>"; };
-		3D7E4D4C18EF84580003A777 /* Novum Icon 02_58x58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_58x58.png"; sourceTree = "<group>"; };
-		3D7E4D4D18EF84580003A777 /* Novum Icon 02_76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_76x76.png"; sourceTree = "<group>"; };
-		3D7E4D4E18EF84580003A777 /* Novum Icon 02_80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum Icon 02_80x80.png"; sourceTree = "<group>"; };
-		3D7E4D6818EF89970003A777 /* Novum-Logo-2048x1536.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum-Logo-2048x1536.png"; sourceTree = "<group>"; };
-		3D7E4D6A18EF8A210003A777 /* Novum-Logo-1536x2048.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum-Logo-1536x2048.png"; sourceTree = "<group>"; };
+		3D7E4D6E18F192D00003A777 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		3D7E4D7018F1993E0003A777 /* Novum-Logo-2048x1536-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum-Logo-2048x1536-Black.png"; sourceTree = "<group>"; };
 		3D9C583618EA1A3E00AC457F /* NVMDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMDetailViewController.h; sourceTree = "<group>"; };
 		3D9C583718EA1A3E00AC457F /* NVMDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMDetailViewController.m; sourceTree = "<group>"; };
 		3DB796CB18CE698D00FFAB8F /* Hospital Base Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hospital Base Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,12 +92,14 @@
 		3DB796E118CE698D00FFAB8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DB796E318CE698E00FFAB8F /* NVMMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NVMMasterViewController.h; sourceTree = "<group>"; };
 		3DB796E418CE698E00FFAB8F /* NVMMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NVMMasterViewController.m; sourceTree = "<group>"; };
-		3DB796E918CE698E00FFAB8F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3DB796EF18CE698E00FFAB8F /* Hospital Base ClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hospital Base ClientTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB796F018CE698E00FFAB8F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3DB796F818CE698E00FFAB8F /* Hospital Base ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hospital Base ClientTests-Info.plist"; sourceTree = "<group>"; };
 		3DB796FA18CE698E00FFAB8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3DB796FC18CE698E00FFAB8F /* Hospital_Base_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hospital_Base_ClientTests.m; sourceTree = "<group>"; };
+		3DC9957318F19E2200AA1CA8 /* Novum-Logo-768x1024-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum-Logo-768x1024-Black.png"; sourceTree = "<group>"; };
+		3DC9957418F19E2200AA1CA8 /* Novum-Logo-1024x768-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum-Logo-1024x768-Black.png"; sourceTree = "<group>"; };
+		3DC9957518F19E2200AA1CA8 /* Novum-Logo-1536x2048-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum-Logo-1536x2048-Black.png"; sourceTree = "<group>"; };
 		3DCB73D718D5CA6B000D7A88 /* mc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mc.plist; sourceTree = "<group>"; };
 		3DCB73D918D5D1A9000D7A88 /* NVMBaseUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMBaseUsers.h; sourceTree = "<group>"; };
 		3DCB73DA18D5D1A9000D7A88 /* NVMBaseUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMBaseUsers.m; sourceTree = "<group>"; };
@@ -172,18 +152,6 @@
 				3D7E4D4018EF84580003A777 /* Novum Icon 01_58x58.png */,
 				3D7E4D4118EF84580003A777 /* Novum Icon 01_76x76.png */,
 				3D7E4D4218EF84580003A777 /* Novum Icon 01_80x80.png */,
-				3D7E4D4318EF84580003A777 /* Novum Icon 02_1024x1024.png */,
-				3D7E4D4418EF84580003A777 /* Novum Icon 02_120x120.png */,
-				3D7E4D4518EF84580003A777 /* Novum Icon 02_152x152.png */,
-				3D7E4D4618EF84580003A777 /* Novum Icon 02_20x20.png */,
-				3D7E4D4718EF84580003A777 /* Novum Icon 02_25x25.png */,
-				3D7E4D4818EF84580003A777 /* Novum Icon 02_29x29.png */,
-				3D7E4D4918EF84580003A777 /* Novum Icon 02_40x40.png */,
-				3D7E4D4A18EF84580003A777 /* Novum Icon 02_44x44.png */,
-				3D7E4D4B18EF84580003A777 /* Novum Icon 02_50x50.png */,
-				3D7E4D4C18EF84580003A777 /* Novum Icon 02_58x58.png */,
-				3D7E4D4D18EF84580003A777 /* Novum Icon 02_76x76.png */,
-				3D7E4D4E18EF84580003A777 /* Novum Icon 02_80x80.png */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -191,8 +159,10 @@
 		3D7E4D6718EF89970003A777 /* Logo */ = {
 			isa = PBXGroup;
 			children = (
-				3D7E4D6A18EF8A210003A777 /* Novum-Logo-1536x2048.png */,
-				3D7E4D6818EF89970003A777 /* Novum-Logo-2048x1536.png */,
+				3DC9957318F19E2200AA1CA8 /* Novum-Logo-768x1024-Black.png */,
+				3DC9957418F19E2200AA1CA8 /* Novum-Logo-1024x768-Black.png */,
+				3DC9957518F19E2200AA1CA8 /* Novum-Logo-1536x2048-Black.png */,
+				3D7E4D7018F1993E0003A777 /* Novum-Logo-2048x1536-Black.png */,
 			);
 			path = Logo;
 			sourceTree = "<group>";
@@ -245,7 +215,6 @@
 				3DCB73EB18D6A637000D7A88 /* NVMImageZoomViewController.m */,
 				3D65266818DE671900373B31 /* NVMZoomImageView.h */,
 				3D65266918DE671900373B31 /* NVMZoomImageView.m */,
-				3DB796E918CE698E00FFAB8F /* Images.xcassets */,
 				3DB796D518CE698D00FFAB8F /* Supporting Files */,
 				3DCB73D918D5D1A9000D7A88 /* NVMBaseUsers.h */,
 				3DCB73DA18D5D1A9000D7A88 /* NVMBaseUsers.m */,
@@ -267,6 +236,7 @@
 				3DB796DA18CE698D00FFAB8F /* main.m */,
 				3DB796DC18CE698D00FFAB8F /* Hospital Base Client-Prefix.pch */,
 				3DCB73D718D5CA6B000D7A88 /* mc.plist */,
+				3D7E4D6E18F192D00003A777 /* images.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -370,33 +340,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D7E4D5A18EF84580003A777 /* Novum Icon 01_80x80.png in Resources */,
-				3DB796EA18CE698E00FFAB8F /* Images.xcassets in Resources */,
 				3DB796D918CE698D00FFAB8F /* InfoPlist.strings in Resources */,
-				3D7E4D5C18EF84580003A777 /* Novum Icon 02_120x120.png in Resources */,
+				3DC9957718F19E2200AA1CA8 /* Novum-Logo-1024x768-Black.png in Resources */,
 				3D7E4D5318EF84580003A777 /* Novum Icon 01_25x25.png in Resources */,
-				3D7E4D6018EF84580003A777 /* Novum Icon 02_29x29.png in Resources */,
-				3D7E4D6918EF89970003A777 /* Novum-Logo-2048x1536.png in Resources */,
-				3D7E4D5F18EF84580003A777 /* Novum Icon 02_25x25.png in Resources */,
-				3D7E4D6B18EF8A210003A777 /* Novum-Logo-1536x2048.png in Resources */,
-				3D7E4D6318EF84580003A777 /* Novum Icon 02_50x50.png in Resources */,
+				3DC9957818F19E2200AA1CA8 /* Novum-Logo-1536x2048-Black.png in Resources */,
+				3D7E4D7118F1993E0003A777 /* Novum-Logo-2048x1536-Black.png in Resources */,
+				3D7E4D6F18F192D00003A777 /* images.xcassets in Resources */,
 				3D7E4D5018EF84580003A777 /* Novum Icon 01_120x120.png in Resources */,
-				3D7E4D6118EF84580003A777 /* Novum Icon 02_40x40.png in Resources */,
-				3D7E4D6218EF84580003A777 /* Novum Icon 02_44x44.png in Resources */,
 				3DCB73D818D5CA6B000D7A88 /* mc.plist in Resources */,
 				3D7E4D5218EF84580003A777 /* Novum Icon 01_20x20.png in Resources */,
 				3D7E4D5118EF84580003A777 /* Novum Icon 01_152x152.png in Resources */,
 				3DB796E218CE698D00FFAB8F /* Main.storyboard in Resources */,
 				3D7E4D5818EF84580003A777 /* Novum Icon 01_58x58.png in Resources */,
-				3D7E4D5B18EF84580003A777 /* Novum Icon 02_1024x1024.png in Resources */,
-				3D7E4D6618EF84580003A777 /* Novum Icon 02_80x80.png in Resources */,
 				3D7E4D5618EF84580003A777 /* Novum Icon 01_44x44.png in Resources */,
-				3D7E4D5D18EF84580003A777 /* Novum Icon 02_152x152.png in Resources */,
+				3DC9957618F19E2200AA1CA8 /* Novum-Logo-768x1024-Black.png in Resources */,
 				3D7E4D5518EF84580003A777 /* Novum Icon 01_40x40.png in Resources */,
 				3D7E4D5918EF84580003A777 /* Novum Icon 01_76x76.png in Resources */,
-				3D7E4D6418EF84580003A777 /* Novum Icon 02_58x58.png in Resources */,
 				3D7E4D5418EF84580003A777 /* Novum Icon 01_29x29.png in Resources */,
-				3D7E4D5E18EF84580003A777 /* Novum Icon 02_20x20.png in Resources */,
-				3D7E4D6518EF84580003A777 /* Novum Icon 02_76x76.png in Resources */,
 				3D7E4D4F18EF84580003A777 /* Novum Icon 01_1024x1024.png in Resources */,
 				3D7E4D5718EF84580003A777 /* Novum Icon 01_50x50.png in Resources */,
 			);
@@ -556,11 +516,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hospital Base Client/Hospital Base Client-Prefix.pch";
 				INFOPLIST_FILE = "Hospital Base Client/Hospital Base Client-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -571,11 +533,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Hospital Base Client/Hospital Base Client-Prefix.pch";
 				INFOPLIST_FILE = "Hospital Base Client/Hospital Base Client-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

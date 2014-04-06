@@ -11,4 +11,6 @@
 @interface NVMAtchImagesViewCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
+-(void) asyncLoadImageViewWithUrl:(NSURL*)url;
+
 @end
