@@ -74,7 +74,7 @@ CREATE TABLE `base_users` (
 --
 
 INSERT INTO `base_users`(`id`, `name`, `password`, `customer`, `pubkey`, `ui`) VALUES(1, 'novumroot', '5414a00ad69c1584167389e5640fe1b0', 1, '', 1);
-INSERT INTO `base_users`(`id`, `name`, `password`, `customer`, `pubkey`, `ui`) VALUES(2, 'psl', '5414a00ad69c1584167389e5640fe1b0', 1, '', 1);
+INSERT INTO `base_users`(`id`, `name`, `password`, `customer`, `pubkey`, `ui`) VALUES(2, 'PSL', '5414a00ad69c1584167389e5640fe1b0', 1, '', 1);
 
 -- --------------------------------------------------------
 

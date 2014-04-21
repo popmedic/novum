@@ -61,10 +61,10 @@
     NVMAtchImagesViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idNVMAtchImagesViewCell" forIndexPath:indexPath];
     NVMBaseUsers* bu = [[NVMBaseUsers alloc] init];
     NSURL* url = [bu getAtchFileURL:[[self.atchImages objectAtIndex:indexPath.row] valueForKey:@"id"] Thumb:NO];
-    [cell asyncLoadImageViewWithUrl:url];/*
+    //[cell asyncLoadImageViewWithUrl:url];
     NSData* imgData = [NSData dataWithContentsOfURL:url];
     UIImage* img = [UIImage imageWithData:imgData];
-    [cell.imageView setImage:img];*/
+    [cell.imageView setImage:img];
     
     return cell;
 }
@@ -96,10 +96,10 @@
     
     NVMBaseUsers* bu = [[NVMBaseUsers alloc] init];
     NSURL* url = [bu getAtchFileURL:[[self.atchImages objectAtIndex:indexPath.row] valueForKey:@"id"] Thumb:NO];
-    [cell asyncLoadImageViewWithUrl:url];/*
+    //[cell asyncLoadImageViewWithUrl:url];
     NSData* imgData = [NSData dataWithContentsOfURL:url];
     UIImage* img = [UIImage imageWithData:imgData];
     
-    imageDetailViewController.image = img;*/
+    imageDetailViewController.image = img;
 }
 @end

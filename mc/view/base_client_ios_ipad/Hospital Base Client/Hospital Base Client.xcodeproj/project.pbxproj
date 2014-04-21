@@ -37,6 +37,7 @@
 		3DB796F318CE698E00FFAB8F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB796D218CE698D00FFAB8F /* UIKit.framework */; };
 		3DB796FB18CE698E00FFAB8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DB796F918CE698E00FFAB8F /* InfoPlist.strings */; };
 		3DB796FD18CE698E00FFAB8F /* Hospital_Base_ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DB796FC18CE698E00FFAB8F /* Hospital_Base_ClientTests.m */; };
+		3DBAF89718F2232D0064F383 /* siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3DBAF89618F2232D0064F383 /* siren.mp3 */; };
 		3DC9957618F19E2200AA1CA8 /* Novum-Logo-768x1024-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC9957318F19E2200AA1CA8 /* Novum-Logo-768x1024-Black.png */; };
 		3DC9957718F19E2200AA1CA8 /* Novum-Logo-1024x768-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC9957418F19E2200AA1CA8 /* Novum-Logo-1024x768-Black.png */; };
 		3DC9957818F19E2200AA1CA8 /* Novum-Logo-1536x2048-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC9957518F19E2200AA1CA8 /* Novum-Logo-1536x2048-Black.png */; };
@@ -97,6 +98,7 @@
 		3DB796F818CE698E00FFAB8F /* Hospital Base ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Hospital Base ClientTests-Info.plist"; sourceTree = "<group>"; };
 		3DB796FA18CE698E00FFAB8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3DB796FC18CE698E00FFAB8F /* Hospital_Base_ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hospital_Base_ClientTests.m; sourceTree = "<group>"; };
+		3DBAF89618F2232D0064F383 /* siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = siren.mp3; sourceTree = "<group>"; };
 		3DC9957318F19E2200AA1CA8 /* Novum-Logo-768x1024-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum-Logo-768x1024-Black.png"; sourceTree = "<group>"; };
 		3DC9957418F19E2200AA1CA8 /* Novum-Logo-1024x768-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum-Logo-1024x768-Black.png"; sourceTree = "<group>"; };
 		3DC9957518F19E2200AA1CA8 /* Novum-Logo-1536x2048-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Novum-Logo-1536x2048-Black.png"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		3DB796D518CE698D00FFAB8F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3DBAF89518F2232D0064F383 /* Sounds */,
 				3D7E4D6718EF89970003A777 /* Logo */,
 				3D7E4D3618EF84580003A777 /* Icons */,
 				3DB796D618CE698D00FFAB8F /* Hospital Base Client-Info.plist */,
@@ -257,6 +260,14 @@
 				3DB796F918CE698E00FFAB8F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3DBAF89518F2232D0064F383 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				3DBAF89618F2232D0064F383 /* siren.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +361,7 @@
 				3DCB73D818D5CA6B000D7A88 /* mc.plist in Resources */,
 				3D7E4D5218EF84580003A777 /* Novum Icon 01_20x20.png in Resources */,
 				3D7E4D5118EF84580003A777 /* Novum Icon 01_152x152.png in Resources */,
+				3DBAF89718F2232D0064F383 /* siren.mp3 in Resources */,
 				3DB796E218CE698D00FFAB8F /* Main.storyboard in Resources */,
 				3D7E4D5818EF84580003A777 /* Novum Icon 01_58x58.png in Resources */,
 				3D7E4D5618EF84580003A777 /* Novum Icon 01_44x44.png in Resources */,

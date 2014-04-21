@@ -11,6 +11,8 @@
 #import "NVMBaseUsers.h"
 #import "NVMImageZoomViewController.h"
 #import "NVMMasterViewCell.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface NVMMasterViewController () {
     NSMutableArray *_objects;
@@ -31,7 +33,7 @@
     [super awakeFromNib];
     /*self.pollingInterval = [[NSUserDefaults standardUserDefaults] valueForKey:@"pollingIntervalInSecs"];
     if(![self.pollingInterval isKindOfClass:[NSNumber class]]){*/
-        self.pollingInterval = [NSNumber numberWithFloat:30.0];
+        self.pollingInterval = [NSNumber numberWithFloat:15.0];
         
     //}
 }
@@ -145,7 +147,9 @@
 
 - (void)checkForMessages:(id)sender{
     NSDate* end = [NSDate date];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
     [_baseUsers getMsgHeadersStart:_lastChecked End:end Handler:^(NSURLResponse *resp, NSData *data, NSError *error) {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = FALSE;
         NSError* jerror;
         if(resp != nil){
             //NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
@@ -204,6 +208,15 @@
     [_objects insertObject:newObject atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    NSString *soundFilePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/siren.mp3"];
+    if([[NSFileManager defaultManager] fileExistsAtPath:soundFilePath]){
+        NSURL* soundFileURL = [NSURL fileURLWithPath:soundFilePath isDirectory:NO];
+        SystemSoundID soundID;
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundFileURL, &soundID);
+        AudioServicesPlaySystemSound(soundID);
+    }
+     
 }
 
 #pragma mark - Table View
@@ -264,7 +277,6 @@
     activityIndicatorView.center = self.detailViewController.view.center;
     [self.detailViewController.view addSubview:activityIndicatorView];
     [self.detailViewController.view bringSubviewToFront:activityIndicatorView];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
     [activityIndicatorView startAnimating];
     tableView.userInteractionEnabled = FALSE;
     
@@ -283,8 +295,12 @@
     [detailViewClearAnimation setDuration:.5];
     [[self.detailViewController.view layer] addAnimation:detailViewClearAnimation forKey:@"UITableViewReloadDataAnimationKey"];
     
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
     [_baseUsers getAtchHeaders:msgId
                        Handler:^(NSURLResponse *resp, NSData *data, NSError *error) {
+                           
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = FALSE;
         if(data.length > 0){
             NSError* jerror;
             if(resp != nil){
@@ -298,7 +314,10 @@
                        if([self.detailViewController.navigationController.visibleViewController isKindOfClass:[NVMImageZoomViewController class]]){
                            [self.detailViewController.navigationController popViewControllerAnimated:YES];
                        }
+                       
+                       [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
                        [_baseUsers readMessage:msgId Handler:^(NSURLResponse *resp, NSData *data, NSError *error) {
+                           [UIApplication sharedApplication].networkActivityIndicatorVisible = FALSE;
                            if(data != nil){
                                NSError *j2error;
                                NSDictionary *dmsg = [NSJSONSerialization JSONObjectWithData:data
@@ -349,7 +368,6 @@
                                [alert show];
                            }
                        }];
-                       [UIApplication sharedApplication].networkActivityIndicatorVisible = FALSE;
                        [activityIndicatorView stopAnimating];
                        tableView.userInteractionEnabled = TRUE;
                        
@@ -363,7 +381,6 @@
                        [[self.detailViewController.view layer] addAnimation:detailViewAnimation forKey:@"UITableViewReloadDataAnimationKey"];
                    }
                    else{
-                       [UIApplication sharedApplication].networkActivityIndicatorVisible = FALSE;
                        [activityIndicatorView stopAnimating];
                        tableView.userInteractionEnabled = TRUE;
                        
@@ -377,7 +394,6 @@
                    }
                }
                else{
-                   [UIApplication sharedApplication].networkActivityIndicatorVisible = FALSE;
                    [activityIndicatorView stopAnimating];
                    tableView.userInteractionEnabled = TRUE;
 
@@ -391,7 +407,6 @@
                }
             }
             else{
-                [UIApplication sharedApplication].networkActivityIndicatorVisible = FALSE;
                 [activityIndicatorView stopAnimating];
                 tableView.userInteractionEnabled = TRUE;
 

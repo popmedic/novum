@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F3833278-3F45-4136-8C0F-D014BE7A4DA8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>NovumField</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>42C8A48E-51F7-4C3F-989B-21631BE476AB</key>
+		<string>https://github.com/popmedic/novum.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>mc/view/field_client_ios_iphone/NovumField/NovumField.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>42C8A48E-51F7-4C3F-989B-21631BE476AB</key>
+		<string>../../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/popmedic/novum.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>42C8A48E-51F7-4C3F-989B-21631BE476AB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>42C8A48E-51F7-4C3F-989B-21631BE476AB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>novum</string>
+		</dict>
+	</array>
+</dict>
+</plist>
