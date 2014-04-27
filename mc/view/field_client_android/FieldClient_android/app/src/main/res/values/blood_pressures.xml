@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="blood_pressures">
+        <item>None</item>
+        <item>Hypo</item>
+        <item>Normal</item>
+        <item>Hyper</item>
+    </string-array>
+</resources>

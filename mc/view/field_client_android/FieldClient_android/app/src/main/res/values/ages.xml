@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="ages">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>9</item>
+        <item>13</item>
+        <item>20s</item>
+        <item>30s</item>
+        <item>40s</item>
+        <item>50s</item>
+        <item>60s</item>
+        <item>70s</item>
+        <item>80s</item>
+        <item>90s</item>
+        <item>100…</item>
+    </string-array>
+</resources>
