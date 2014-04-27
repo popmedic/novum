@@ -94,7 +94,7 @@ public class MainActivity extends ActionBarActivity {
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int PIC_MENU_ITEM_TAG_IDX = 1;
     private static final float REDUCE_PIC_SIZE = 1080f;
-    private static final int REDUCE_PIC_QUALITY = 50;
+    private static final int REDUCE_PIC_QUALITY = 90;
 
     protected static final ArrayList<String> picFiles = new ArrayList<String>();
     protected static final IntegerStorage selectedBaseClient = new IntegerStorage(0);
