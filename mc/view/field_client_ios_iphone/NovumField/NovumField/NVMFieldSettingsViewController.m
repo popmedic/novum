@@ -37,7 +37,7 @@
     [self.phoneTextField setText:fieldUser.phone];
     [self.agencyTextField setText:fieldUser.agency];
     [self.unitTextField setText:fieldUser.unit];
-    [self.navigationItem setTitle:fieldUser.macAddress];
+    //[self.navigationItem setTitle:fieldUser.macAddress];
 }
 
 - (void)didReceiveMemoryWarning

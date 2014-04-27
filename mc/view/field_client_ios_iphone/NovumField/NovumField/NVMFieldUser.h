@@ -16,4 +16,10 @@
 @property (getter = unit,setter = setUnit:, nonatomic)NSString* unit;
 @property (readonly, getter = macAddress, nonatomic) NSString* macAddress;
 
+-(NSDictionary*) createVarsTo:(NSString*)toId
+                      Message:(NSDictionary*)msg
+                        Error:(NSError**)error;
+-(NSURLRequest*) sendMessage:(NSDictionary*)vars
+                 Attachments:(NSArray*)atch
+                       Error:(NSError**)error;
 @end

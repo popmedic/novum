@@ -29,9 +29,11 @@
 		3D538BCD1903290700593726 /* NVMFieldSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D538BCC1903290700593726 /* NVMFieldSettingsViewController.m */; };
 		3D538BD019032CD900593726 /* NVMFieldUtilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D538BCF19032CD900593726 /* NVMFieldUtilityViewController.m */; };
 		3D538BD3190344B700593726 /* NVMFieldUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D538BD2190344B700593726 /* NVMFieldUser.m */; };
-		3D538BD619035E7000593726 /* UIDevice+macaddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D538BD519035E7000593726 /* UIDevice+macaddress.m */; };
 		3DAE6C681903FBA100BDFC3B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAE6C671903FBA100BDFC3B /* MobileCoreServices.framework */; };
 		3DAE6C6A1904027800BDFC3B /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DAE6C691904027800BDFC3B /* camera.png */; };
+		3DAE6C6D19057A8600BDFC3B /* NVMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE6C6C19057A8600BDFC3B /* NVMConstants.m */; };
+		3DAE6C7019057F8A00BDFC3B /* NSString+Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE6C6F19057F8A00BDFC3B /* NSString+Random.m */; };
+		3DAE6C731905AC4C00BDFC3B /* UIView+LoadingDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAE6C721905AC4C00BDFC3B /* UIView+LoadingDialog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,10 +77,14 @@
 		3D538BCF19032CD900593726 /* NVMFieldUtilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMFieldUtilityViewController.m; sourceTree = "<group>"; };
 		3D538BD1190344B700593726 /* NVMFieldUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMFieldUser.h; sourceTree = "<group>"; };
 		3D538BD2190344B700593726 /* NVMFieldUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMFieldUser.m; sourceTree = "<group>"; };
-		3D538BD419035E7000593726 /* UIDevice+macaddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+macaddress.h"; sourceTree = "<group>"; };
-		3D538BD519035E7000593726 /* UIDevice+macaddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+macaddress.m"; sourceTree = "<group>"; };
 		3DAE6C671903FBA100BDFC3B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		3DAE6C691904027800BDFC3B /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		3DAE6C6B19057A8600BDFC3B /* NVMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NVMConstants.h; sourceTree = "<group>"; };
+		3DAE6C6C19057A8600BDFC3B /* NVMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NVMConstants.m; sourceTree = "<group>"; };
+		3DAE6C6E19057F8A00BDFC3B /* NSString+Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Random.h"; sourceTree = "<group>"; };
+		3DAE6C6F19057F8A00BDFC3B /* NSString+Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Random.m"; sourceTree = "<group>"; };
+		3DAE6C711905AC4C00BDFC3B /* UIView+LoadingDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadingDialog.h"; sourceTree = "<group>"; };
+		3DAE6C721905AC4C00BDFC3B /* UIView+LoadingDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadingDialog.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +166,12 @@
 				3D538BC91903233700593726 /* Localizable.strings */,
 				3D538B8C1902FE5A00593726 /* main.m */,
 				3D538B8E1902FE5A00593726 /* NovumField-Prefix.pch */,
-				3D538BD419035E7000593726 /* UIDevice+macaddress.h */,
-				3D538BD519035E7000593726 /* UIDevice+macaddress.m */,
+				3DAE6C6B19057A8600BDFC3B /* NVMConstants.h */,
+				3DAE6C6C19057A8600BDFC3B /* NVMConstants.m */,
+				3DAE6C6E19057F8A00BDFC3B /* NSString+Random.h */,
+				3DAE6C6F19057F8A00BDFC3B /* NSString+Random.m */,
+				3DAE6C711905AC4C00BDFC3B /* UIView+LoadingDialog.h */,
+				3DAE6C721905AC4C00BDFC3B /* UIView+LoadingDialog.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -332,13 +342,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DAE6C7019057F8A00BDFC3B /* NSString+Random.m in Sources */,
 				3D538BCD1903290700593726 /* NVMFieldSettingsViewController.m in Sources */,
 				3D538BD019032CD900593726 /* NVMFieldUtilityViewController.m in Sources */,
-				3D538BD619035E7000593726 /* UIDevice+macaddress.m in Sources */,
 				3D538B8D1902FE5A00593726 /* main.m in Sources */,
 				3D538BD3190344B700593726 /* NVMFieldUser.m in Sources */,
 				3D538BC31903124C00593726 /* NVMFieldHomeViewController.m in Sources */,
+				3DAE6C731905AC4C00BDFC3B /* UIView+LoadingDialog.m in Sources */,
 				3D538B911902FE5A00593726 /* NVMFieldAppDelegate.m in Sources */,
+				3DAE6C6D19057A8600BDFC3B /* NVMConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,11 +468,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NovumField/NovumField-Prefix.pch";
 				INFOPLIST_FILE = "NovumField/NovumField-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -472,11 +486,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NovumField/NovumField-Prefix.pch";
 				INFOPLIST_FILE = "NovumField/NovumField-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

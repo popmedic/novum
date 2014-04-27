@@ -78,7 +78,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6B-Y3-jtV">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6B-Y3-jtV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
@@ -128,11 +128,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dw8-3m-upP">
-                                        <rect key="frame" x="142" y="242" width="36" height="30"/>
+                                        <rect key="frame" x="20" y="242" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Send">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendButtonClicked:" destination="zrw-n0-yKa" eventType="touchUpInside" id="SA9-Eo-bQP"/>
+                                        </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWX-Gi-JeM">
                                         <rect key="frame" x="0.0" y="72" width="320" height="162"/>
@@ -147,18 +150,20 @@
                                     <constraint firstItem="73X-bZ-Ic1" firstAttribute="top" secondItem="q6i-Ug-gRd" secondAttribute="top" id="1wx-al-2HT"/>
                                     <constraint firstItem="MBf-L7-SUl" firstAttribute="leading" secondItem="OfU-kx-yN7" secondAttribute="trailing" constant="46" id="2U9-mk-bdV"/>
                                     <constraint firstItem="bWX-Gi-JeM" firstAttribute="top" secondItem="73X-bZ-Ic1" secondAttribute="bottom" constant="8" symbolic="YES" id="4H6-9U-qfT"/>
-                                    <constraint firstAttribute="bottom" secondItem="dw8-3m-upP" secondAttribute="bottom" constant="296" id="5x4-bP-xy4"/>
                                     <constraint firstItem="MBf-L7-SUl" firstAttribute="baseline" secondItem="OfU-kx-yN7" secondAttribute="baseline" id="6fN-Iy-JFx"/>
                                     <constraint firstItem="MBf-L7-SUl" firstAttribute="top" secondItem="73X-bZ-Ic1" secondAttribute="bottom" constant="8" symbolic="YES" id="6kR-a4-myF"/>
                                     <constraint firstItem="SEa-KL-XGN" firstAttribute="top" secondItem="q6i-Ug-gRd" secondAttribute="bottom" constant="8" symbolic="YES" id="76p-Sb-gH5"/>
+                                    <constraint firstAttribute="trailing" secondItem="dw8-3m-upP" secondAttribute="trailing" constant="20" id="BnW-bl-ZBk"/>
                                     <constraint firstItem="q6i-Ug-gRd" firstAttribute="top" secondItem="L6B-Y3-jtV" secondAttribute="top" constant="20" symbolic="YES" id="Hka-Uw-2T5"/>
-                                    <constraint firstItem="dw8-3m-upP" firstAttribute="centerX" secondItem="bWX-Gi-JeM" secondAttribute="centerX" id="LOw-PD-wTH"/>
+                                    <constraint firstItem="dw8-3m-upP" firstAttribute="centerX" secondItem="bWX-Gi-JeM" secondAttribute="centerX" id="LCJ-aB-K65"/>
                                     <constraint firstItem="73X-bZ-Ic1" firstAttribute="trailing" secondItem="MBf-L7-SUl" secondAttribute="trailing" id="LTe-8Q-L3v"/>
                                     <constraint firstItem="SEa-KL-XGN" firstAttribute="leading" secondItem="q6i-Ug-gRd" secondAttribute="leading" id="MRf-Rw-oxY"/>
+                                    <constraint firstItem="dw8-3m-upP" firstAttribute="leading" secondItem="SEa-KL-XGN" secondAttribute="leading" id="Sbd-5A-nes"/>
                                     <constraint firstItem="bWX-Gi-JeM" firstAttribute="leading" secondItem="L6B-Y3-jtV" secondAttribute="leading" id="XTR-Wz-4lD"/>
                                     <constraint firstItem="Czh-kQ-3DC" firstAttribute="leading" secondItem="SEa-KL-XGN" secondAttribute="trailing" constant="28" id="adD-Uw-dmE"/>
                                     <constraint firstItem="OfU-kx-yN7" firstAttribute="top" secondItem="q6i-Ug-gRd" secondAttribute="bottom" constant="8" symbolic="YES" id="dfu-DX-8q0"/>
                                     <constraint firstItem="q6i-Ug-gRd" firstAttribute="leading" secondItem="L6B-Y3-jtV" secondAttribute="leading" constant="20" symbolic="YES" id="e6s-9f-LFF"/>
+                                    <constraint firstItem="dw8-3m-upP" firstAttribute="top" secondItem="bWX-Gi-JeM" secondAttribute="bottom" constant="8" symbolic="YES" id="eME-E9-UaW"/>
                                     <constraint firstAttribute="trailing" secondItem="bWX-Gi-JeM" secondAttribute="trailing" id="h4q-2w-w3I"/>
                                     <constraint firstItem="OfU-kx-yN7" firstAttribute="baseline" secondItem="Czh-kQ-3DC" secondAttribute="baseline" id="hWJ-KR-dYU"/>
                                     <constraint firstItem="Czh-kQ-3DC" firstAttribute="top" secondItem="q6i-Ug-gRd" secondAttribute="bottom" constant="8" symbolic="YES" id="oE8-u8-qEp"/>
@@ -167,7 +172,6 @@
                                     <constraint firstItem="73X-bZ-Ic1" firstAttribute="leading" secondItem="q6i-Ug-gRd" secondAttribute="trailing" constant="8" symbolic="YES" id="sn0-6k-NCZ"/>
                                     <constraint firstItem="Czh-kQ-3DC" firstAttribute="baseline" secondItem="SEa-KL-XGN" secondAttribute="baseline" id="tNe-cU-csO"/>
                                     <constraint firstItem="OfU-kx-yN7" firstAttribute="leading" secondItem="Czh-kQ-3DC" secondAttribute="trailing" constant="53" id="upk-y6-u8S"/>
-                                    <constraint firstItem="dw8-3m-upP" firstAttribute="top" secondItem="bWX-Gi-JeM" secondAttribute="bottom" constant="8" symbolic="YES" id="ybn-17-YUE"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -181,6 +185,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="See-bz-E8h"/>
                     <connections>
+                        <outlet property="pickerView" destination="bWX-Gi-JeM" id="uE1-LR-0KI"/>
                         <outlet property="picturesScrollView" destination="q6i-Ug-gRd" id="LTC-gP-B8t"/>
                     </connections>
                 </viewController>
