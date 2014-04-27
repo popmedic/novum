@@ -333,10 +333,10 @@
                                                                                                  error:&jerr2];
                                    if(jsonMessage != nil){
                                         [advc.complaintLabel setText:[jsonMessage valueForKey:@"complaint"]];
-                                        [advc.descriptionLabel1 setText:[NSString stringWithFormat:@"Gender: %@", (NSString*)[jsonMessage valueForKey:@"gender"]]];
-                                        [advc.descriptionLabel2 setText:[NSString stringWithFormat:@"Heart Rate: %@", [jsonMessage valueForKey:@"heart_rate"]]];
-                                        [advc.descriptionLabel3 setText:[NSString stringWithFormat:@"Blood Pressure: %@", [jsonMessage valueForKey:@"blood_pressure"]]];
-                                        [advc.descriptionLabel4 setText:[NSString stringWithFormat:@"Respitory Rate: %@", [jsonMessage valueForKey:@"respiration"]]];
+                                        [advc.descriptionLabel1 setText:[NSString stringWithFormat:@"Age: %@", (NSString*)[jsonMessage valueForKey:@"age"]]];
+                                        [advc.descriptionLabel2 setText:[NSString stringWithFormat:@"Gender: %@", [jsonMessage valueForKey:@"gender"]]];
+                                        /*[advc.descriptionLabel3 setText:[NSString stringWithFormat:@"Blood Pressure: %@", [jsonMessage valueForKey:@"blood_pressure"]]];
+                                        [advc.descriptionLabel4 setText:[NSString stringWithFormat:@"Respitory Rate: %@", [jsonMessage valueForKey:@"respiration"]]];*/
                                    }
                                    else{
                                         [advc.complaintLabel setText:[dm valueForKey:@"message"]];

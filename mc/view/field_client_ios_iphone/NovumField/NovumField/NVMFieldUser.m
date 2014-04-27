@@ -10,6 +10,8 @@
 #import "NVMConstants.h"
 #import "NSString+Random.h"
 
+#define PICTURE_JPG_COMPRESSION 0.10
+
 @implementation NVMFieldUser
 
 -(id) init
@@ -161,7 +163,7 @@
         
         for(int i = 0; i < atch.count; i++){
             UIImage* image = atch[i];
-            NSData* imageData = UIImageJPEGRepresentation(image, 0.10);
+            NSData* imageData = UIImageJPEGRepresentation(image, PICTURE_JPG_COMPRESSION);
             [body appendData:boundaryData];
             [body appendData: [[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"file%d\"; filename=\"file%d.jpg\"\r\n\r\n", i+1, i+1] dataUsingEncoding:NSUTF8StringEncoding]];
             [body appendData: imageData];
