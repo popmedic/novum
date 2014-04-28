@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3DB796CA18CE698D00FFAB8F"
-               BuildableName = "Hospital Base Client.app"
+               BuildableName = "NovumBase.app"
                BlueprintName = "NovumBase"
                ReferencedContainer = "container:NovumBase.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3DB796EE18CE698E00FFAB8F"
-               BuildableName = "Hospital Base ClientTests.xctest"
+               BuildableName = "NovumBaseTests.xctest"
                BlueprintName = "NovumBaseTests"
                ReferencedContainer = "container:NovumBase.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DB796CA18CE698D00FFAB8F"
-            BuildableName = "Hospital Base Client.app"
+            BuildableName = "NovumBase.app"
             BlueprintName = "NovumBase"
             ReferencedContainer = "container:NovumBase.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DB796CA18CE698D00FFAB8F"
-            BuildableName = "Hospital Base Client.app"
+            BuildableName = "NovumBase.app"
             BlueprintName = "NovumBase"
             ReferencedContainer = "container:NovumBase.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3DB796CA18CE698D00FFAB8F"
-            BuildableName = "Hospital Base Client.app"
+            BuildableName = "NovumBase.app"
             BlueprintName = "NovumBase"
             ReferencedContainer = "container:NovumBase.xcodeproj">
          </BuildableReference>
