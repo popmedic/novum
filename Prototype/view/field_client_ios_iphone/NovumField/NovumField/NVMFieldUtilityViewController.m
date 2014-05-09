@@ -61,7 +61,7 @@
                      }
                    ];
     complaints = @[
-                   @"Card",
+                   @"Cardiac",
                    @"Stroke",
                    @"Trauma",
                    @"Other"
