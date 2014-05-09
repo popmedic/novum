@@ -1,0 +1,154 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.novumconcepts.fieldClient.MainActivity$PlaceholderFragment">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:weightSum="1">
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="72dp"
+                android:id="@+id/takePickButton"
+                android:src="@android:drawable/ic_menu_camera"
+                android:layout_gravity="center"
+                android:contentDescription="@string/camera_button_content_discription"
+                android:clickable="true"
+                android:onClick="takePicButtonClick"
+                android:baselineAlignBottom="false"
+                android:text="@string/camera_button_text"
+                android:textSize="32dp"
+                android:textColor="#22a3fd"
+                style="?android:attr/borderlessButtonStyle" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:id="@+id/imagesHorizontalScrollView"
+                android:padding="4dp"
+                android:fillViewport="false"
+                android:background="@drawable/images_border" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imagesHorizontalLayout"
+                    android:gravity="center_vertical">
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/complaintSpinner"
+                android:spinnerMode="dropdown"
+                android:layout_gravity="center"
+                android:alpha="1" />
+
+            <!--Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/genderSpinner"
+                android:spinnerMode="dropdown"
+                android:layout_gravity="center"
+                android:alpha="1" />
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/heartRateSpinner"
+                android:spinnerMode="dropdown"
+                android:layout_gravity="center"
+                android:alpha="1" />
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bloodPressureSpinner"
+                android:spinnerMode="dropdown"
+                android:layout_gravity="center"
+                android:alpha="1" /-->
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/genderRadioGroup"
+                android:focusableInTouchMode="false"
+                android:orientation="horizontal"
+                android:checkedButton="@+id/genderFemaleButton">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="@string/gender_text"
+                    android:id="@+id/genderTextView"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.04" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gender_male_button"
+                    android:id="@+id/genderMaleButton"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.48" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gender_female_button"
+                    android:id="@+id/genderFemaleButton"
+                    android:layout_weight="0.48"
+                    android:layout_gravity="center" />
+            </RadioGroup>
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ageSpinner"
+                android:layout_gravity="center"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/baseClientsSpinner"
+                        android:spinnerMode="dropdown"
+                        android:layout_gravity="center"
+                android:alpha="1" />
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="72dp"
+                android:id="@+id/sendButton"
+                android:layout_gravity="center_vertical|right|top"
+                android:contentDescription="@string/send_button_content_discription"
+                android:clickable="true"
+                android:onClick="sendButtonClick"
+                android:text="@string/send_button_text"
+                android:textSize="32dp"
+                android:textColor="#22a3fd"
+                style="?android:attr/borderlessButtonStyle" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
