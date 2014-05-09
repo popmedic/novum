@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>user</key>
+	<string>PSL</string>
+	<key>password</key>
+	<string>5414a00ad69c1584167389e5640fe1b0</string>
+	<key>getMsgHeadersURL</key>
+	<string>http://kevinscardina.com/novum/mc/api/public/baseusers/getMsgHeaders.php</string>
+	<key>getAtchHeadersURL</key>
+	<string>http://kevinscardina.com/novum/mc/api/public/baseusers/getAtchHeaders.php</string>
+	<key>loginURL</key>
+	<string>http://kevinscardina.com/novum/mc/api/public/baseusers/login.php</string>
+	<key>readMessageURL</key>
+	<string>http://kevinscardina.com/novum/mc/api/public/baseusers/readMessage.php</string>
+	<key>getAtchFileURLFmt</key>
+	<string>http://kevinscardina.com/novum/mc/api/public/baseusers/getAtchFile.php?vars=%@</string>
+</dict>
+</plist>
